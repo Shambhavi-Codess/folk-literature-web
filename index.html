@@ -3,182 +3,231 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>लोकसाहित्याची रूपरेखा - MIT School of Computing</title>
-  <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;700&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+  <title>भारतीय लोकसाहित्य: परीकथा आणि अद्भुतकथा</title>
+  <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;700&family=Noto+Serif+Devanagari:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --accent: #8B0000;
-      --gold: #b8964d;
-      --bg: #fdfbf7;
+      --shahi-red: #8B0000;
+      --antique-gold: #b8964d;
+      --paper-bg: #fdfbf7;
+      --text-main: #2c2c2c;
+      --border-color: #d1b272;
     }
 
     body {
-      background-color: #f4f1ea;
-      color: #1a1a1a;
+      font-family: 'Poppins', sans-serif;
+      background-color: #eee;
+      color: var(--text-main);
       margin: 0;
-      padding: 20px;
+      padding: 0;
       line-height: 1.8;
-      font-family: 'Noto Serif Devanagari', serif;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: var(--bg);
-      padding: 50px;
-      border: 1px solid #d1b272;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    /* Translator Widget Styling */
+    #google_translate_element {
+      text-align: right;
+      padding: 10px;
+      background: #f4f4f4;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .manuscript {
+      max-width: 950px;
+      margin: 20px auto;
+      background: var(--paper-bg);
+      padding: 60px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.2);
+      border: 2px solid var(--border-color);
+      position: relative;
+    }
+
+    .manuscript::before {
+      content: "";
+      position: absolute;
+      top: 10px; left: 10px; right: 10px; bottom: 10px;
+      border: 1px solid var(--border-color);
+      pointer-events: none;
     }
 
     header {
       text-align: center;
-      border-bottom: 3px double var(--accent);
-      margin-bottom: 40px;
+      border-bottom: 3px double var(--shahi-red);
       padding-bottom: 20px;
-    }
-
-    .institute-name {
-      font-family: sans-serif;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #444;
-      text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 40px;
     }
 
     h1 {
       font-family: 'Khand', sans-serif;
-      font-size: 3rem;
-      color: var(--accent);
-      margin: 10px 0;
+      font-size: 3.5rem;
+      color: var(--shahi-red);
+      margin: 0;
     }
 
     h2 {
-      color: var(--accent);
-      border-left: 6px solid var(--gold);
+      font-family: 'Noto Serif Devanagari', serif;
+      font-size: 2.2rem;
+      color: var(--shahi-red);
+      border-left: 8px solid var(--antique-gold);
       padding-left: 15px;
-      margin-top: 40px;
+      margin-top: 50px;
+    }
+
+    h3 {
+      font-family: 'Noto Serif Devanagari', serif;
+      font-size: 1.8rem;
+      color: #444;
+      background: rgba(184, 150, 77, 0.1);
+      padding: 10px;
+      border-radius: 5px;
     }
 
     p {
+      font-family: 'Noto Serif Devanagari', serif;
       font-size: 1.25rem;
       text-align: justify;
+      margin-bottom: 25px;
     }
 
-    .img-box {
+    .highlight-box {
+      background: #fff;
+      border: 1px dashed var(--shahi-red);
+      padding: 25px;
+      margin: 30px 0;
+    }
+
+    .image-frame {
       text-align: center;
-      margin: 35px 0;
+      margin: 40px 0;
     }
 
-    .img-box img {
+    .image-frame img {
       max-width: 100%;
       height: auto;
-      border: 10px solid white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      border: 15px solid white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
     .caption {
       display: block;
-      margin-top: 10px;
-      font-weight: bold;
-      color: var(--accent);
-    }
-
-    .detail-section {
-      background: #fff;
-      padding: 25px;
-      border: 1px dashed var(--gold);
-      margin: 20px 0;
+      margin-top: 15px;
+      font-weight: 600;
+      color: var(--shahi-red);
     }
 
     footer {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 60px;
       border-top: 1px solid #ccc;
       padding-top: 20px;
+    }
+
+    .dropcap {
+      float: left;
+      font-size: 4.5rem;
+      line-height: 1;
       font-weight: bold;
+      margin-right: 10px;
+      color: var(--shahi-red);
+      font-family: 'Khand', sans-serif;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
+<div id="google_translate_element"></div>
+
+<div class="manuscript">
   <header>
-    <div class="institute-name">MIT School of Computing</div>
     <h1>लोकसाहित्याची रूपरेखा</h1>
-    <p>प्रकरण ५: परीकथा आणि अद्भुतकथा</p>
+    <p style="font-size: 1.5rem; font-weight: bold; color: var(--antique-gold);">प्रकरण ५: परीकथा आणि अद्भुतकथा</p>
+    <p style="font-size: 1.1rem; color: #555;">सादरकर्ती: [Roommate's Name]</p>
   </header>
 
   <section>
     <h2>परीकथा किंवा अद्भुत कथा</h2>
-    <p>परीकथेची लक्षणे क्रोपेंने वर्णिलेली आपण पहिल्या प्रकरणांत पाहिलीच आहेत. तीच गृहीत धरून भारतीय परीकथांच्या गोतवळ्याची छाननी आपल्याला या प्रकरणांत करायची आहे. या प्रकरणांत मुख्यतः दोन मुद्द्यांचा विचार करायचा आहे: (१) भारतीय परीकथा आणि ऐतिहासिक पर्याय (२) भारतीय परीकथांतील अद्भुतत्व, म्हणजेच अंतिमानवी योनींचा विचार.</p>
+    <p>
+      <span class="dropcap">प</span>रीकथेची लक्षणे क्रोपेंने वर्णिलेली आपण पहिल्या प्रकरणांत पाहिलीच आहेत. तीच गृहीत धरून भारतीय परीकथांच्या गोतवळ्याची छाननी आपल्याला या प्रकरणांत करायची आहे.
+    </p>
 
-    <div class="img-box">
-      <img src="parikatha1.jpeg" alt="Image 1">
-      <span class="caption">चित्र १: ऐतिहासिक पर्याय आणि कथावाङ्मय</span>
+    <div class="image-frame">
+      <img src="parikatha1.jpeg" alt="Historical Legacy">
+      <span class="caption">चित्र १: ऐतिहासिक वारसा आणि सांस्कृतिक पार्श्वभूमी</span>
     </div>
 
-    <h2>: १ : ऐतिहासिक पर्याय</h2>
-    <p>भारतीय कथावाङ्मयाची प्राचीन परंपरा आणि भारतीय धार्मिक व वाङ्मयीन प्रयोगांची अखंडितता पाहिल्यास, ऐतिहासिक पर्यायांना भारतीय परंपरेंत किती महत्त्व आहे हे सहज कळून येतें. जगभरच्या लोककथांना ऐतिहासिक पर्यायाची पार्श्वभूमि अशी नाहीं. ज्या मानानें देशाची संस्कृति पुरातन, प्रगल्भ व साहित्यसंपन्न त्या मानानें त्या देशांत अद्भुत कथांचा आढळ समृद्ध असतो.</p>
+    <h3>: १ : ऐतिहासिक पर्याय</h3>
+    <p>
+      भारतीय कथावाङ्मयाची प्राचीन परंपरा आणि भारतीय धार्मिक व वाङ्मयीन प्रयोगांची अखंडितता पाहिल्यास, ऐतिहासिक पर्यायांना भारतीय परंपरेंत किती महत्त्व आहे हे सहज कळून येतें.
+    </p>
 
-    <div class="img-box">
-      <img src="parikatha2.jpeg" alt="Image 2">
-      <span class="caption">चित्र २: अद्भुतकथांचे स्वरूप</span>
+    <div class="highlight-box">
+      <p><em>"ज्या मानानें देशाची संस्कृति पुरातन, प्रगल्भ व साहित्यसंपन्न त्या मानानें त्या देशांत अद्भुत कथांचा आढळ समृद्ध व बहुढंगी असतो."</em></p>
     </div>
-  </section>
 
-  <section>
-    <h2>: २ : अतिमानवी योनि</h2>
-    <p>भारतीय अद्भुत कथांतल्या प्राचीनतम अतिमानवी योनि यक्ष, गंधर्व, किन्नर, गुह्यक, राक्षस, विद्याधर व सर्प यांच्या आहेत. डॉ. आनंद कुमारस्वामी यांनी यक्षांवर स्वतंत्र ग्रंथ 'Yaksas' लिहिला आहे.</p>
+    <div class="image-frame">
+      <img src="parikatha2.jpeg" alt="Supernatural World">
+      <span class="caption">चित्र २: भारतीय परीकथांमधील अद्भुत विश्व</span>
+    </div>
+
+    <h3>: २ : अतिमानवी योनि</h3>
+    <p>
+      भारतीय अद्भुत कथांतल्या प्राचीनतम अतिमानवी योनि यक्ष, गंधर्व, किन्नर, गुह्यक, राक्षस, विद्याधर व सर्प यांच्या आहेत.
+    </p>
     
-    <div class="detail-section">
-      <ul>
-        <li><strong>गंधर्व:</strong> अग्नीचे रक्षक, संगीतात निपुण आणि 'शेवाळ' खाणारे.</li>
-        <li><strong>किन्नर:</strong> अश्वमुख (घोड्याचे तोंड) असलेले, जे हिमालयातील जमातींचे दैवतीकरण मानले जाते.</li>
-        <li><strong>अप्सरा:</strong> बाणभट्टाने 'कादंबरी' मध्ये अप्सरांची १४ कुळे दिली आहेत.</li>
-      </ul>
-    </div>
+    <ul>
+      <li><strong>गंधर्व:</strong> हे अग्नीचे रक्षक असून संगीतात निपुण असतात.</li>
+      <li><strong>किन्नर:</strong> यांचे तोंड घोड्याचे व शरीर पुरुषाचे असते (अश्वमुख).</li>
+      <li><strong>अप्सरा:</strong> बाणभट्टाने 'कादंबरी' मध्ये अप्सरांची १४ कुळे दिली आहेत.</li>
+    </ul>
 
-    <div class="img-box">
-      <img src="parikatha3.jpeg" alt="Image 3">
-      <span class="caption">चित्र ३: यक्ष आणि गंधर्व शिल्प</span>
+    <div class="image-frame">
+      <img src="parikatha3.jpeg" alt="Divine Species">
+      <span class="caption">चित्र ३: प्राचीन शिल्पांमधील यक्ष आणि गंधर्व प्रतिमा</span>
     </div>
 
     <h3>राक्षसांची ५ मुख्य बीजे (Motifs)</h3>
-    <p>लोकसाहित्यात राक्षसांच्या कथांत खालील बीजे प्रामुख्याने आढळतात:</p>
     <ol>
-      <li>राक्षसाच्या घरी विस्तव असणे.</li>
-      <li>साहाय्यक कन्या (राक्षसाची मुलगी नायकाला मदत करते).</li>
-      <li>राक्षसिणी पिठे कांडताना (विटं मांडताना) आढळणे.</li>
-      <li>राक्षसाचे मानवाशी लग्न.</li>
-      <li>राक्षस बलाढ्य असले तरी मूर्ख असणे.</li>
+      <li>राक्षसाच्या घरी विस्तव मिळवणे.</li>
+      <li>साहाय्यक कन्या: नायकाला मदत करणारी राक्षसकन्या.</li>
+      <li>राक्षसिणीचे पीठ कांडणे.</li>
+      <li>मानवाशी कपटी विवाह.</li>
+      <li>बलाढ्य पण स्वभावाने मूर्ख राक्षस.</li>
     </ol>
   </section>
 
   <section>
     <h2>दंतकथा आणि धार्मिक संदर्भ</h2>
-    <p>जैन दिगंबर पंथातील तीर्थंकरांचे रक्षक यक्ष—ऋषभाचा गोमुख आणि पार्श्वनाथाची पद्मावती—हे दंतकथांचे महत्त्वाचे पैलू आहेत. नागांच्या कथा पाताळलोकीच्या अनंतरत्नांच्या राशींशी संबंधित असतात.</p>
+    <p>
+      जैन दिगंबर पंथातील तीर्थंकरांचे रक्षक यक्ष—ऋषभाचा गोमुख आणि पार्श्वनाथाची पद्मावती हे महत्त्वाचे पैलू आहेत.
+    </p>
 
-    <div class="img-box">
-      <img src="dantkatha1.jpeg" alt="Image 4">
-      <span class="caption">चित्र ४: ऐतिहासिक दंतकथा</span>
+    <div class="image-frame">
+      <img src="dantkatha1.jpeg" alt="Legends">
+      <span class="caption">चित्र ४: ऐतिहासिक दंतकथा आणि स्थळ-पुराण</span>
     </div>
 
-    <div class="img-box">
-      <img src="dantkatha2.jpeg" alt="Image 5">
-      <span class="caption">चित्र ५: सांस्कृतिक वारसा</span>
+    <div class="image-frame">
+      <img src="dantkatha2.jpeg" alt="Cultural Heritage">
+      <span class="caption">चित्र ५: लोकसाहित्यातील सांस्कृतिक वारसा</span>
     </div>
-
-    <h2>: ३ : समारोप</h2>
-    <p>परीकथेत अद्भुताचा परमोत्कर्ष असला, तरी तिच्यात गांभीर्य काठोकाठ भरलेले असते. दुष्टाला शासन व सद्गुणमंडित नायक-नायिकांना सुखाप्राप्ति हा त्यांचा शेवट असतो. परीकथा ही मूलतः ललितकृति असून दुर्जनांना शासन हा कथेचा अपरिहार्य शेवट असतो.</p>
   </section>
 
   <footer>
-    <p>MIT SCHOOL OF COMPUTING</p>
-    <p>MIT ADT University, Pune</p>
+    <p>© २०२६ | शैक्षणिक प्रकल्प - भारतीय लोकसाहित्य अभ्यास</p>
+    <p><strong>MIT School of Computing, Pune</strong></p>
   </footer>
 </div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'mr', 
+    includedLanguages: 'en,hi,mr', // Restricts options to English, Hindi, and Marathi
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
