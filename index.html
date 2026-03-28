@@ -3,128 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>लोकसाहित्याची रूपरेखा - अधिकृत शैक्षणिक पोर्टल</title>
-  <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;700&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+  <title>भारतीय लोकसाहित्य: परीकथा आणि अद्भुतकथा</title>
+  <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;700&family=Noto+Serif+Devanagari:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
   <style>
-    :root { --shahi-red: #8B0000; --gold: #b8964d; --parchment: #fdfbf7; }
-    body { font-family: 'Noto Serif Devanagari', serif; background-color: #e5e5e5; margin: 0; padding: 0; color: #1a1a1a; line-height: 1.8; }
-    
-    /* UNIVERSAL HEADER */
-    .header-nav { background: var(--shahi-red); color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 4px solid var(--gold); }
-    .nav-btn { background: var(--gold); border: none; color: white; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 4px; font-family: 'Khand', sans-serif; transition: 0.3s; }
-    .nav-btn:hover { background: #967b3f; }
+    :root { --shahi-red: #8B0000; --antique-gold: #b8964d; --paper-bg: #fdfbf7; --text-main: #2c2c2c; }
+    body { font-family: 'Poppins', sans-serif; background-color: #eee; color: var(--text-main); margin: 0; padding: 0; line-height: 1.8; }
 
-    /* NATIVE DICTIONARY MODAL (Works on Yahoo/All) */
-    #dict-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; }
-    #dict-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border: 5px double var(--gold); z-index: 2001; width: 90%; max-width: 500px; text-align: center; border-radius: 8px; }
-    .dict-word { color: var(--shahi-red); border-bottom: 2px dashed var(--gold); cursor: help; font-weight: bold; }
+    /* UNIVERSAL TRANSLATOR BAR */
+    .nav-bar { background: var(--shahi-red); color: white; padding: 10px 20px; display: flex; justify-content: space-between; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .nav-btn { background: var(--antique-gold); border: none; color: white; padding: 5px 15px; cursor: pointer; border-radius: 4px; font-weight: bold; }
 
-    .manuscript { max-width: 950px; margin: 30px auto; background: var(--parchment); padding: 60px; border: 1px solid #d1b272; box-shadow: 0 0 40px rgba(0,0,0,0.15); }
-    h1, h2, h3 { font-family: 'Khand', sans-serif; color: var(--shahi-red); }
-    p { text-align: justify; font-size: 1.25rem; margin-bottom: 25px; }
-    
-    .img-frame { text-align: center; margin: 45px 0; background: #fff; padding: 15px; border: 1px solid #ccc; }
-    .img-frame img { max-width: 100%; height: auto; border: 1px solid #eee; }
-    .img-label { display: block; margin-top: 12px; font-weight: bold; color: var(--shahi-red); font-family: 'Khand', sans-serif; }
+    /* ENCYCLOPEDIA POPUP (Like the photo menu) */
+    .encyclo-link { color: var(--shahi-red); border-bottom: 2px dashed var(--antique-gold); cursor: pointer; font-weight: bold; }
+    #encyclo-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; backdrop-filter: blur(4px); }
+    #encyclo-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--paper-bg); padding: 30px; border: 4px solid var(--antique-gold); z-index: 2001; width: 85%; max-width: 500px; border-radius: 15px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+    .close-btn { background: var(--shahi-red); color: white; border: none; padding: 10px 25px; cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 20px; }
 
-    footer { text-align: center; padding: 40px; color: #666; border-top: 1px solid #ccc; font-family: 'Khand', sans-serif; }
+    .manuscript { max-width: 950px; margin: 20px auto; background: var(--paper-bg); padding: 60px; box-shadow: 0 0 40px rgba(0,0,0,0.2); border: 2px solid #d1b272; position: relative; }
+    header { text-align: center; border-bottom: 3px double var(--shahi-red); padding-bottom: 20px; margin-bottom: 40px; }
+    h1 { font-family: 'Khand', sans-serif; font-size: 3.5rem; color: var(--shahi-red); margin: 0; }
+    h2 { font-family: 'Noto Serif Devanagari', serif; font-size: 2.2rem; color: var(--shahi-red); border-left: 8px solid var(--antique-gold); padding-left: 15px; margin-top: 50px; }
+    h3 { font-family: 'Noto Serif Devanagari', serif; font-size: 1.8rem; color: #444; background: rgba(184, 150, 77, 0.1); padding: 10px; border-radius: 5px; }
+    p { font-family: 'Noto Serif Devanagari', serif; font-size: 1.25rem; text-align: justify; margin-bottom: 25px; }
+    .image-frame { text-align: center; margin: 40px 0; }
+    .image-frame img { max-width: 100%; border: 15px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+    .caption { display: block; margin-top: 15px; font-weight: 600; color: var(--shahi-red); }
+    .dropcap { float: left; font-size: 4.5rem; line-height: 1; font-weight: bold; margin-right: 10px; color: var(--shahi-red); font-family: 'Khand', sans-serif; }
+    footer { text-align: center; margin-top: 60px; border-top: 1px solid #ccc; padding-top: 20px; font-weight: bold; }
   </style>
 </head>
 <body>
 
-<div class="header-nav">
-  <span style="font-weight: bold;">MIT ACADEMIC REPOSITORY</span>
-  <button class="nav-btn" onclick="toggleLanguage()">भाषा बदला / TOGGLE ENGLISH</button>
+<div class="nav-bar">
+  <span>MIT Academic Portal</span>
+  <div id="google_translate_element"></div>
 </div>
 
-<div id="dict-overlay" onclick="closeDict()"></div>
-<div id="dict-modal">
-  <h2 id="dict-title" style="margin-top:0;">संदर्भ (Dictionary)</h2>
-  <p id="dict-text" style="font-size: 1.3rem;"></p>
-  <button class="nav-btn" onclick="closeDict()">CLOSE</button>
+<div id="encyclo-overlay" onclick="closeEncyclopedia()"></div>
+<div id="encyclo-modal">
+  <h2 id="modal-title" style="color:var(--shahi-red); font-family:'Khand';">शब्दकोश / Encyclopedia</h2>
+  <hr border="1" color="#b8964d">
+  <p id="modal-text" style="font-size: 1.3rem; margin: 20px 0;"></p>
+  <button class="close-btn" onclick="closeEncyclopedia()">CLOSE REFERENCE</button>
 </div>
 
-<div class="manuscript" id="main-content">
-  </div>
+<div class="manuscript">
+  <header>
+    <h1>लोकसाहित्याची रूपरेखा</h1>
+    <p style="font-size: 1.5rem; font-weight: bold; color: var(--antique-gold);">प्रकरण ५: परीकथा आणि अद्भुतकथा</p>
+  </header>
 
-<script>
-  let lang = 'mr';
+  <section>
+    <h2>परीकथा किंवा अद्भुत कथा</h2>
+    <p>
+      <span class="dropcap">प</span>रीकथेची लक्षणे क्रोपेंने वर्णिलेली आपण पहिल्या प्रकरणांत पाहिलीच आहेत. तीच गृहीत धरून भारतीय परीकथांच्या गोतवळ्याची छाननी आपल्याला या प्रकरणांत करायची आहे. या प्रकरणांत मुख्यतः पुढील मुद्द्यांचा विचार करायचा आहे: (१) भारतीय परीकथा आणि <span class="encyclo-link" onclick="openEncyclopedia('variants')">ऐतिहासिक पर्याय</span> (२) भारतीय परीकथांतील <span class="encyclo-link" onclick="openEncyclopedia('supernatural')">अद्भुत्व</span>, म्हणजेच अंतिमानवी योनींचा विचार आणि अद्भुत घटनांचा विचार.
+    </p>
 
-  const content = {
-    mr: {
-      title: "लोकसाहित्याची रूपरेखा",
-      subtitle: "प्रकरण पाचवे - परीक्षा किंवा अनुभवकथा",
-      intro: "परीक्षेची कसोटी आपण पाहिल्या प्रकारात पाहिली आहे. परीक्षेत विचारलेल्या प्रश्नांमुळे विद्यार्थ्यांच्या ज्ञानाची कसोटी होते. परंतु अनुभवकथांमध्ये एखाद्या व्यक्तीच्या अनुभवावर आधारित कथा सांगितल्या जातात. या प्रकारात मुख्यतः पुढील मुद्द्यांचा समावेश होतो : (१) भारतीय परीक्षा आणि ऐतिहासिक व्यक्ती, (२) व्यक्तींचे अनुभव, (३) त्यांचे वर्तमान जीवन, (४) वस्तूंचा विचार.",
-      histTitle: "४ : ४ ऐतिहासिक व्यक्ती",
-      histPara: "भारतीय संस्कृतीच्या प्राचीन परंपरा आणि भारतीय धार्मिक व सांस्कृतिक घटकांचा अभ्यास या प्रकरणात करण्यात येतो. इतिहासातील घटनांचा विचार करून त्या घटनांचा वर्तमानावर कसा परिणाम होतो याचा अभ्यास करणे महत्त्वाचे आहे. भारतातील अनेक ऐतिहासिक व्यक्तींनी समाजावर मोठा प्रभाव टाकला आहे. इतिहासात केवळ राजकीय घटना नाहीत, तर सामाजिक, आर्थिक, धार्मिक आणि सांस्कृतिक घटकांचाही अभ्यास केला जातो. इतिहास आपल्याला भूतकाळातील घटनांची माहिती देतो आणि वर्तमान समजून घेण्यास मदत करतो.",
-      fullText: "वाङ्मयात, महाकाव्यात, बौद्ध, जैन व इतर कथासंग्रहात्मक वाङ्मयात विस्तारात बहुसंख्य अद्भुतकथांची प्रतिकृती कुठे ना कुठे तरी सापडते. परीकथा हा एक गुंतागुंतीचा गद्यप्रकार, किंवा गद्यपद्यमिश्रित <span class='dict-word' onclick='openDict(\"champu\")'>चंपूप्रकार</span> असून त्याचा आविष्कार परम गांभीर्याने भरलेला असतो. राजा विक्रमाचा दरबार हा पंचतंत्रातल्या वनराजाच्या सभेचे प्रतीक असते. ज्या ज्या प्रदेशांत प्राथमिक संस्कृतीशिवाय कुठलीही संस्कृती पोचली नाही, तिथे परीकथा आढळत नाहीत. उदा. मध्य आफ्रिकेतल्या निग्रो लोकांना परीकथा माहीत नाहीत. ऑस्ट्रेलियातल्याही अत्यंत रानटी लोकांत अद्भुतकथा नाहीत.",
-      beingsTitle: ": २ : अतिमानवी योनी",
-      beingsPara: "भारतीय अद्भुत कथांतल्या प्राचीनतम अतिमानवी योनी, यक्ष, गंधर्व, किन्नर, गुह्यक, राक्षस, विद्याधर व सर्प यांच्या आहेत. या सर्व अतिमानवी योनींपैकी यक्षांवर फक्त डॉ. आनंद कुमारस्वामी यांनी उत्कृष्ट स्वतंत्र ग्रंथ Yaksas हा लिहिला आहे. गंधर्व-किन्नरांबद्दल असे वाङ्मय फ्रेंच भाषेखेरीज अन्यत्र नाही. नागांविषयी मात्र विपुल वाङ्मय उपलब्ध आहे.",
-      kinnarPara: "किन्नर हे एक महिना स्त्री व एक महिना पुरुष होतात, असाही समज पुराणांत आढळतो. जातकांत किन्नरांची जात पुष्पप्रेमी आणि प्रणयासक्त अशी दर्शविलेली आहे. एके ठिकाणी एक रात्रभर वियुक्त झालेले किन्नर-युगल दुसऱ्या दिवशी सकाळी भेट झाल्यावर एकमेकांना मिठी मारून कित्येक वर्षे त्याच स्थितीत रडत व हसत राहिले, असे वर्णन आहे.",
-      rakshasTitle: "राक्षस आणि लोककथा बीजे",
-      rakshasPara: "भारतीय लोककथांत राक्षसांच्या कथांतली मुख्य बीजे अशी आढळतात : (१) राक्षसाच्या घरी विस्तव असतो. (२) राक्षसाला मुली असतात ज्या नायकाला मदत करतात. (३) राक्षसिणी पिठे कांडतात. (४) राक्षसीण मानवाबरोबर लग्न करते. (५) राक्षस बलाढ्य असले तरी मूर्ख असतात.",
-      jainPara: "जैन (दिगंबर पंथात) - तीर्थंकरांच्या प्रत्येकाच्या वेगवेगळ्या यक्ष-यक्षिणी असत. उदा. ऋषभाचा यक्ष गोमुख आणि यक्षिणी अप्रतिचक्रा. पार्श्वनाथाची सेविका यक्षिणी पद्मावती हिचा वर्ण सोनेरी असून रथ सर्पाचा आहे.",
-      features: ["मायिक सिद्धी", "आकाशसंचार", "अदृश्य होणे", "कला-संगीत नैपुण्य", "मानवाशी संभोग", "मानवी अपत्ये", "पंखहीन उड्डाण", "रात्रिसंचार"]
-    },
-    en: {
-      title: "Outline of Folklore",
-      subtitle: "Chapter 5 - Examinations or Experience Stories",
-      intro: "We examined tests in the previous section. While exams test a student's knowledge, experience stories are based on an individual's lived experiences. This includes: (1) Indian Exams and Historical Figures, (2) Personal Experiences, (3) Current Life, (4) Objects.",
-      histTitle: "4.4 Historical Figures",
-      histPara: "This study looks at ancient Indian traditions and cultural elements. Understanding how historical events shape the present is vital. History is not just politics; it is social, economic, and cultural. It helps us understand the present through the past.",
-      fullText: "In literature, epics, and Buddhist/Jain texts, replicas of wonder-tales are found everywhere. Fairy tales are complex prose forms, often in <span class='dict-word' onclick='openDict(\"champu_en\")'>Champu style</span> (mixed prose/poetry), filled with seriousness. King Vikram's court represents the assembly of the Forest King in Panchatantra. In regions without advanced culture, like Central Africa or tribal Australia, these stories are absent.",
-      beingsTitle: "2. Superhuman Beings",
-      beingsPara: "The oldest superhuman beings are Yakshas, Gandharvas, Kinnars, Rakshasas, etc. Dr. Ananda Coomaraswamy wrote the definitive book 'Yaksas'. While French literature covers Gandharvas, vast literature exists on Nagas (Serpents).",
-      kinnarPara: "In Puranas, Kinnars change gender monthly. Jataka tales describe them as romantic. One story tells of a Kinnar couple separated for a night; upon reuniting, they remained in an embrace, laughing and crying for years.",
-      rakshasTitle: "Rakshasas and Folk Motifs",
-      rakshasPara: "Main motifs: (1) Fire is found in their homes. (2) Daughters help the hero against the father. (3) Ogresses grind flour. (4) An Ogress marries a human. (5) They are powerful but foolish.",
-      jainPara: "In Jainism, Tirthankaras have specific Yakshas. For Rishabha, it is Gomukh; for Parshvanatha, it is Padmavati, who has a golden complexion and a serpent chariot.",
-      features: ["Mystical Powers", "Sky Travel", "Invisibility/Form-shifting", "Expertise in Arts", "Relations with Humans", "Human Offspring", "Flight without Wings", "Night Travel"]
-    }
+    <div class="image-frame">
+      <img src="parikatha1.jpeg" alt="Historical Legacy">
+      <span class="caption">चित्र १: ऐतिहासिक वारसा आणि सांस्कृतिक पार्श्वभूमी</span>
+    </div>
+
+    <h3>: १ : ऐतिहासिक पर्याय</h3>
+    <p>
+      भारतीय कथावाङ्मयाची प्राचीन परंपरा आणि भारतीय धार्मिक व वाङ्मयीन प्रयोगांची अखंडितता पाहिल्यास, ऐतिहासिक पर्यायांना भारतीय परंपरेंत किती महत्त्व आहे हे सहज कळून येतें. जगभरच्या लोककथांना ऐतिहासिक पर्यायाची पार्श्वभूमि अशी नाहीं. ग्रीक किंवा मिसरी अपवाद सोडल्यास बरेंचसें युरोपियन व आफ्रिकेचें लोककथात्मक साहित्य केवळ दंतपरंपरेवर आधारलेलें आहे.
+    </p>
+
+    <div class="image-frame">
+      <img src="parikatha2.jpeg" alt="Supernatural World">
+      <span class="caption">चित्र २: भारतीय परीकथांमधील अद्भुत विश्व</span>
+    </div>
+  </section>
+
+  <section>
+    <h3>: २ : अतिमानवी योनि</h3>
+    <p>
+      भारतीय अद्भुत कथांतल्या प्राचीनतम <span class="encyclo-link" onclick="openEncyclopedia('species')">अतिमानवी योनि</span> यक्ष, गंधर्व, किन्नर, गुह्यक, राक्षस, विद्याधर व सर्प यांच्या आहेत. या सर्व अतिमानवी योनींपैकी <span class="encyclo-link" onclick="openEncyclopedia('yaksha')">यक्षांवर</span> डॉ. आनंद कुमारस्वामी यांनी स्वतंत्र ग्रंथ 'Yaksas' लिहिला आहे.
+    </p>
+    
+    <ul>
+      <li><strong>गंधर्व:</strong> हे अग्नीचे रक्षक असून संगीतात निपुण असतात. कौषीतकी-ब्राह्मणात गंधर्व पाण्यात राहतात असा उल्लेख आहे.</li>
+      <li><strong>किन्नर:</strong> यांचे तोंड घोड्याचे व शरीर पुरुषाचे असते (अश्वमुख).</li>
+      <li><strong>अप्सरा:</strong> बाणभट्टाने 'कादंबरी' मध्ये अप्सरांची १४ कुळे दिली आहेत.</li>
+    </ul>
+
+    <div class="image-frame">
+      <img src="parikatha3.jpeg" alt="Divine Species">
+      <span class="caption">चित्र ३: प्राचीन शिल्पांमधील यक्ष आणि गंधर्व प्रतिमा</span>
+    </div>
+
+    <h3>राक्षसांची ५ मुख्य बीजे (Motifs)</h3>
+    <ol>
+      <li>राक्षसाच्या घरी विस्तव मिळवणे.</li>
+      <li>साहाय्यक कन्या: नायकाला मदत करणारी राक्षसकन्या.</li>
+      <li>राक्षसिणीचे पीठ कांडणे.</li>
+      <li>मानवाशी कपटी विवाह.</li>
+      <li>बलाढ्य पण स्वभावाने मूर्ख राक्षस.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>दंतकथा आणि धार्मिक संदर्भ</h2>
+    <p>जैन दिगंबर पंथातील तीर्थंकरांचे रक्षक यक्ष—ऋषभाचा गोमुख आणि पार्श्वनाथाची पद्मावती हे महत्त्वाचे पैलू आहेत.</p>
+    <div class="image-frame">
+      <img src="dantkatha1.jpeg" alt="Legends"><span class="caption">चित्र ४: ऐतिहासिक दंतकथा आणि स्थळ-पुराण</span>
+    </div>
+    <div class="image-frame">
+      <img src="dantkatha2.jpeg" alt="Cultural Heritage"><span class="caption">चित्र ५: लोकसाहित्यातील सांस्कृतिक वारसा</span>
+    </div>
+  </section>
+
+  <footer>
+    <p>MIT School of Computing, Pune | Academic Project 2026</p>
+  </footer>
+</div>
+
+<script type="text/javascript">
+  const encyclopedia = {
+    'variants': 'ऐतिहासिक पर्याय (Historical Variants): एकाच कथेचे काळाप्रमाणे किंवा प्रदेशाप्रमाणे बदललेले विविध संदर्भ.',
+    'supernatural': 'अद्भुत्व (Supernaturalism): मानवी बुद्धीला न पटणाऱ्या पण कल्पनेत रम्य वाटणाऱ्या चमत्कारिक घटना.',
+    'species': 'अतिमानवी योनि (Superhuman Beings): मानवापेक्षा वेगळ्या शक्ती असलेल्या प्रजाती (उदा. यक्ष, गंधर्व, राक्षस इ.).',
+    'yaksha': 'यक्ष (Yaksha): निसर्गाशी संबंधित एक प्राचीन अतिमानवी शक्ती. डॉ. आनंद कुमारस्वामी यांनी यावर सखोल संशोधन केले आहे.'
   };
-
-  const dictionary = {
-    'champu': 'चंपूप्रकार: गद्य आणि पद्य यांचे मिश्रण असलेले वाङ्मय.',
-    'champu_en': 'Champu Style: A literary composition featuring a mix of prose and poetry.'
-  };
-
-  function render() {
-    const l = content[lang];
-    document.getElementById('main-content').innerHTML = `
-      <h1>${l.title}</h1>
-      <p style="text-align:center; font-weight:bold; color:var(--gold);">${l.subtitle}</p>
-      
-      <div class="img-frame"><img src="parikatha1.jpeg"><span class="img-label">IMAGE 1: HISTORICAL TRADITION</span></div>
-      <p>${l.intro}</p>
-
-      <h3>${l.histTitle}</h3>
-      <p>${l.histPara}</p>
-
-      <div class="img-frame"><img src="parikatha2.jpeg"><span class="img-label">IMAGE 2: FOLKLORE SCOPE</span></div>
-      <p>${l.fullText}</p>
-
-      <div class="img-frame"><img src="parikatha3.jpeg"><span class="img-label">IMAGE 3: SUPERHUMAN BEINGS</span></div>
-      <h2>${l.beingsTitle}</h2>
-      <p>${l.beingsPara}</p>
-      <p>${l.kinnarPara}</p>
-
-      <div class="img-frame"><img src="dantkatha1.jpeg"><span class="img-label">IMAGE 4: RAKSHASA MOTIFS</span></div>
-      <h3>${l.rakshasTitle}</h3>
-      <p>${l.rakshasPara}</p>
-
-      <div class="img-frame"><img src="dantkatha2.jpeg"><span class="img-label">IMAGE 5: CULTURAL LEGACY</span></div>
-      <p>${l.jainPara}</p>
-
-      <h3>Characteristics:</h3>
-      <ul>${l.features.map(f => `<li>${f}</li>`).join('')}</ul>
-    `;
+  function openEncyclopedia(key) {
+    document.getElementById('modal-text').innerText = encyclopedia[key];
+    document.getElementById('encyclo-overlay').style.display = 'block';
+    document.getElementById('encyclo-modal').style.display = 'block';
   }
-
-  function toggleLanguage() { lang = (lang === 'mr') ? 'en' : 'mr'; render(); }
-  function openDict(key) { document.getElementById('dict-text').innerText = dictionary[key]; document.getElementById('dict-overlay').style.display = 'block'; document.getElementById('dict-modal').style.display = 'block'; }
-  function closeDict() { document.getElementById('dict-overlay').style.display = 'none'; document.getElementById('dict-modal').style.display = 'none'; }
-
-  render();
+  function closeEncyclopedia() {
+    document.getElementById('encyclo-overlay').style.display = 'none';
+    document.getElementById('encyclo-modal').style.display = 'none';
+  }
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'mr', includedLanguages: 'en,hi,mr'}, 'google_translate_element');
+  }
 </script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
