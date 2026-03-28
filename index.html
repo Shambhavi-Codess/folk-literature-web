@@ -7,9 +7,52 @@
   <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;700&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
+    /* Styling for the clickable words */
+.dict-link { 
+  color: #8B0000; 
+  border-bottom: 2px dashed #b8964d; 
+  cursor: help; 
+  font-weight: bold; 
+}
+
+/* The Pop-up Box (Modal) */
+#dict-modal { 
+  display: none; 
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  background: white; 
+  padding: 30px; 
+  border: 4px solid #b8964d; 
+  z-index: 3000; 
+  width: 80%; 
+  max-width: 400px; 
+  border-radius: 10px; 
+  text-align: center;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+/* Dark background behind the pop-up */
+#dict-overlay { 
+  display: none; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: rgba(0,0,0,0.7); 
+  z-index: 2999; 
+}
     :root { --shahi-red: #8B0000; --gold: #b8964d; --bg: #fdfbf7; }
     <body>{ font-family: 'Noto Serif Devanagari', serif; background-color: #f0f0f0; margin: 0; padding: 0; color: #2c2c2c; line-height: 1.8; }
-    
+    <div id="dict-overlay" onclick="closeDict()"></div>
+<div id="dict-modal">
+  <h2 style="color:#8B0000; margin-top:0;">संदर्भ / Dictionary</h2>
+  <hr>
+  <p id="dict-text" style="font-size:1.3rem; margin: 20px 0;"></p>
+  <button onclick="closeDict()" style="background:#8B0000; color:white; border:none; padding:10px 20px; cursor:pointer; border-radius:5px; font-weight:bold;">CLOSE</button>
+</div>
     /* UNIVERSAL HEADER & TRANSLATOR */
     .header-nav { background: var(--shahi-red); color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
     #google_translate_element { background: white; border-radius: 4px; padding: 2px; }
@@ -50,6 +93,26 @@
   </div>
 
 <script>
+  // 1. Define your words and meanings here
+const dictionaryData = {
+  'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे काळाप्रमाणे किंवा प्रदेशाप्रमाणे बदललेले विविध संदर्भ.',
+  'champu': 'चंपूप्रकार: गद्य आणि पद्य (Proetry & Prose) यांचे मिश्रण असलेले वाङ्मय.',
+  'yaksha': 'यक्ष: संपत्तीचे रक्षक आणि निसर्गाशी संबंधित प्राचीन अतिमानवी शक्ती.',
+  'kinnar': 'किन्नर: अश्वमुख आणि मानवी देह असलेली, गायन-वादनात निपुण अतिमानवी योनी.'
+};
+
+// 2. Function to show the dictionary
+function openDict(wordKey) {
+  document.getElementById('dict-text').innerText = dictionaryData[wordKey];
+  document.getElementById('dict-overlay').style.display = 'block';
+  document.getElementById('dict-modal').style.display = 'block';
+}
+
+// 3. Function to hide the dictionary
+function closeDict() {
+  document.getElementById('dict-overlay').style.display = 'none';
+  document.getElementById('dict-modal').style.display = 'none';
+}
   // THIS IS THE FULL CONTENT. NO DELETIONS.
   const academicData = {
     mr: {
