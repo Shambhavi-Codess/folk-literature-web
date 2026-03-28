@@ -3,197 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>भारतीय लोकसाहित्य: परीकथा आणि अद्भुतकथा</title>
-  <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;700&family=Noto+Serif+Devanagari:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>लोकसाहित्याची रूपरेखा - प्रकरण ५</title>
+  <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;700&family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
-    :root {
-      --shahi-red: #8B0000;
-      --antique-gold: #b8964d;
-      --paper-bg: #fdfbf7;
-      --text-main: #2c2c2c;
-      --border-color: #d1b272;
-    }
+    :root { --shahi-red: #8B0000; --gold: #b8964d; --bg: #fdfbf7; }
+    body { font-family: 'Noto Serif Devanagari', serif; background-color: #f0f0f0; margin: 0; padding: 0; color: #2c2c2c; line-height: 1.8; }
+    
+    /* UNIVERSAL HEADER & TRANSLATOR */
+    .header-nav { background: var(--shahi-red); color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    #google_translate_element { background: white; border-radius: 4px; padding: 2px; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #eee;
-      color: var(--text-main);
-      margin: 0;
-      padding: 0;
-      line-height: 1.8;
-    }
+    /* INTERACTIVE DICTIONARY (Selection Menu Style) */
+    .dict-link { color: var(--shahi-red); border-bottom: 2px dashed var(--gold); cursor: pointer; font-weight: bold; }
+    #dict-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 25px; border: 4px solid var(--gold); z-index: 2000; width: 85%; max-width: 450px; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); text-align: center; }
+    #dict-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1999; backdrop-filter: blur(3px); }
 
-    /* Interactive Word Styling */
-    .dict-link {
-      color: var(--shahi-red);
-      border-bottom: 2px dashed var(--antique-gold);
-      cursor: pointer;
-      font-weight: 700;
-      transition: 0.3s;
-    }
-    .dict-link:hover { background: rgba(184, 150, 77, 0.1); }
-
-    /* Cross-Platform Popup Styles */
-    #dict-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 1000;
-      backdrop-filter: blur(3px);
-    }
-
-    #dict-modal {
-      display: none;
-      position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--paper-bg);
-      padding: 30px;
-      border: 3px solid var(--antique-gold);
-      z-index: 1001;
-      width: 85%;
-      max-width: 400px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-
-    #dict-modal h3 { font-family: 'Khand', sans-serif; color: var(--shahi-red); margin-top: 0; }
-    #dict-modal p { font-family: 'Noto Serif Devanagari', serif; font-size: 1.2rem; }
-    .close-btn { 
-      background: var(--shahi-red); color: white; border: none; 
-      padding: 8px 20px; cursor: pointer; border-radius: 4px; font-weight: bold; 
-    }
-
-    #google_translate_element { text-align: right; padding: 10px; background: #f4f4f4; border-bottom: 1px solid #ddd; }
-
-    .manuscript {
-      max-width: 950px;
-      margin: 20px auto;
-      background: var(--paper-bg);
-      padding: 40px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.2);
-      border: 2px solid var(--border-color);
-      position: relative;
-    }
-
-    .manuscript::before {
-      content: ""; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
-      border: 1px solid var(--border-color); pointer-events: none;
-    }
-
-    header { text-align: center; border-bottom: 3px double var(--shahi-red); padding-bottom: 20px; margin-bottom: 40px; }
-    h1 { font-family: 'Khand', sans-serif; font-size: 3rem; color: var(--shahi-red); margin: 0; }
-    h2 { font-family: 'Noto Serif Devanagari', serif; font-size: 2rem; color: var(--shahi-red); border-left: 8px solid var(--antique-gold); padding-left: 15px; margin-top: 40px; }
-    h3 { font-family: 'Noto Serif Devanagari', serif; font-size: 1.6rem; color: #444; background: rgba(184, 150, 77, 0.1); padding: 10px; border-radius: 5px; }
-    p { font-family: 'Noto Serif Devanagari', serif; font-size: 1.2rem; text-align: justify; }
-
-    .image-frame { text-align: center; margin: 30px 0; }
-    .image-frame img { max-width: 100%; border: 10px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-    .caption { display: block; margin-top: 10px; font-weight: 600; color: var(--shahi-red); }
-
-    footer { text-align: center; margin-top: 60px; border-top: 1px solid #ccc; padding-top: 20px; font-size: 0.9rem; }
-    .dropcap { float: left; font-size: 4rem; line-height: 1; font-weight: bold; margin-right: 10px; color: var(--shahi-red); font-family: 'Khand', sans-serif; }
+    .manuscript { max-width: 950px; margin: 30px auto; background: var(--bg); padding: 60px; border: 1px solid #d1b272; box-shadow: 0 0 30px rgba(0,0,0,0.15); }
+    h1, h2 { font-family: 'Khand', sans-serif; color: var(--shahi-red); border-bottom: 3px double var(--gold); padding-bottom: 10px; }
+    h3 { color: #444; background: rgba(184, 150, 77, 0.1); padding: 10px; border-radius: 5px; margin-top: 30px; }
+    p { text-align: justify; font-size: 1.25rem; margin-bottom: 25px; }
+    .dropcap { float: left; font-size: 4.5rem; line-height: 1; font-weight: bold; margin-right: 12px; color: var(--shahi-red); font-family: 'Khand', sans-serif; }
+    .citation { font-size: 0.9rem; color: #666; font-style: italic; border-left: 3px solid var(--gold); padding-left: 10px; margin: 10px 0; }
+    .footer { text-align: center; font-weight: bold; margin-top: 50px; border-top: 1px solid #ccc; padding-top: 20px; color: #555; }
+    ul, ol { font-size: 1.2rem; }
   </style>
 </head>
 <body>
 
-<div id="google_translate_element"></div>
+<div class="header-nav">
+  <span style="font-weight: bold; letter-spacing: 1px;">MIT ACADEMIC PORTAL</span>
+  <div id="google_translate_element"></div>
+</div>
 
-<div id="dict-overlay" onclick="closeMeaning()"></div>
+<div id="dict-overlay" onclick="closeDict()"></div>
 <div id="dict-modal">
-  <h3 id="modal-title">शब्दकोश / Dictionary</h3>
-  <p id="modal-text"></p>
-  <button class="close-btn" onclick="closeMeaning()">बंद करा (Close)</button>
+  <h2 id="dict-title" style="margin-top:0; color:var(--shahi-red);">संदर्भ / Dictionary</h2>
+  <hr color="#b8964d">
+  <p id="dict-text" style="font-size:1.3rem; padding: 10px;"></p>
+  <button onclick="closeDict()" style="background:var(--shahi-red); color:white; border:none; padding:10px 25px; cursor:pointer; border-radius:5px; font-weight:bold;">CLOSE</button>
 </div>
 
 <div class="manuscript">
-  <header>
+  <header style="text-align: center; margin-bottom: 50px;">
     <h1>लोकसाहित्याची रूपरेखा</h1>
-    <p style="font-size: 1.3rem; font-weight: bold; color: var(--antique-gold);">प्रकरण ५: परीकथा आणि अद्भुतकथा</p>
+    <p style="font-size: 1.6rem; font-weight: bold; color: var(--gold);">प्रकरण ५: परीकथा आणि अद्भुतकथा</p>
   </header>
 
   <section>
-    <h2>परीकथा किंवा अद्भुत कथा</h2>
+    <h2>परीकथा किंवा अद्भुतकथा</h2>
     <p>
-      <span class="dropcap">प</span>रीकथेची लक्षणे आपण पहिल्या प्रकरणांत पाहिलीच आहेत. या प्रकरणांत आपण <span class="dict-link" onclick="getMeaning('folklore')">लोकसाहित्यातील</span> परीकथांच्या गोतवळ्याची छाननी करणार आहोत.
+      <span class="dropcap">प</span>रीकथेची लक्षणे क्रोपेंने वर्णिलेली आपण पहिल्या प्रकरणांत पाहिलीच आहेत. तीच गृहीत धरून भारतीय परीकथांच्या गोतवळ्याची छाननी आपल्याला या प्रकरणांत करायची आहे. या प्रकरणांत मुख्यतः पुढील मुद्द्यांचा विचार करायचा आहे: (१) भारतीय परीकथा आणि <span class="dict-link" onclick="openDict('variants')">ऐतिहासिक पर्याय</span> (२) भारतीय परीकथांतील <span class="dict-link" onclick="openDict('supernatural')">अद्भुतत्व</span>, म्हणजेच अतिमानवी योनींचा विचार आणि अद्भुत घटनांचा विचार.
     </p>
-
-    <div class="image-frame">
-      <img src="parikatha1.jpeg" alt="Historical Legacy">
-      <span class="caption">चित्र १: ऐतिहासिक वारसा आणि सांस्कृतिक पार्श्वभूमी</span>
-    </div>
 
     <h3>: १ : ऐतिहासिक पर्याय</h3>
     <p>
-      भारतीय कथावाङ्मयात <span class="dict-link" onclick="getMeaning('variants')">ऐतिहासिक पर्यायांना</span> खूप महत्त्व आहे. ज्या मानाने संस्कृती प्रगल्भ, त्या मानाने त्या देशातील <span class="dict-link" onclick="getMeaning('supernatural')">अद्भुत्व</span> समृद्ध असते.
+      भारतीय कथावाङ्मयाची प्राचीन परंपरा आणि भारतीय धार्मिक व वाङ्मयीन प्रयोगांची अखंडितता पाहिल्यास, ऐतिहासिक पर्यायांना भारतीय परंपरेंत किती महत्त्व आहे हे सहज कळून येतें. जगभरच्या लोककथांना ऐतिहासिक पर्यायाची पार्श्वभूमि अशी नाहीं. ग्रीक किंवा मिसरी अपवाद सोडल्यास बरेंचसें युरोपियन व आफ्रिकेचें लोककथात्मक साहित्य केवळ दंतपरंपरेवर आधारलेलें आहे. ऑस्ट्रेलिया, कॅलिफोर्नियाच्या कथा तर केवळ स्मृतींनीं सुरक्षितलेल्या आढळतात.
     </p>
-
-    <div class="image-frame">
-      <img src="parikatha2.jpeg" alt="Supernatural World">
-      <span class="caption">चित्र २: भारतीय परीकथांमधील अद्भुत विश्व</span>
-    </div>
-
-    <h3>: २ : अतिमानवी योनि</h3>
     <p>
-      प्राचीन कथांत <span class="dict-link" onclick="getMeaning('species')">अतिमानवी योनि</span> जसे यक्ष, गंधर्व आणि राक्षस यांचे वर्णन आढळते.
+      ज्या मानानें देशाची संस्कृति पुरातन, प्रगल्भ व साहित्यसंपन्न त्या मानानें त्या देशांत अद्भुत कथांचा आढळ समृद्ध व बहुढंगी असतो. परीकथा हा एक गुंतागुंतीचा गद्यप्रकार, किंवा गद्यपद्यमिश्रित <span class="dict-link" onclick="openDict('champu')">चंपूप्रकार</span> असून त्याचा आविष्कार परम गांभीर्याने भरलेला असतो. राजा विक्रमाचा दरबार हा मध्ययुगीन राजांच्या दरबाराचे प्रतीक नसते, तर <span class="dict-link" onclick="openDict('panchatantra')">पंचतंत्रातल्या</span> वनराजाच्या सभेचे प्रतीक असते.
     </p>
 
-    <div class="image-frame">
-      <img src="parikatha3.jpeg" alt="Divine Species">
-      <span class="caption">चित्र ३: प्राचीन शिल्पांमधील यक्ष आणि गंधर्व प्रतिमा</span>
-    </div>
+    <h3>: २ : अतिमानवी योनी</h3>
+    <p>
+      भारतीय अद्भुत कथांतल्या प्राचीनतम अतिमानवी योनी: <strong>यक्ष, गंधर्व, किन्नर, गुह्यक, राक्षस, विद्याधर व सर्प</strong> यांच्या आहेत. गंधर्व म्हणजे माणसाच्या मृत्यूनंतर पुन्हा जन्म घेण्याच्या आधीच्या अवस्थेत असणारा त्याचा आत्मा होय, अशी ही समजूत आहे.
+    </p>
+    <div class="citation">Sir Graves C. Haughton, Dictionary, Bengali and Sanskrit, p. 918.</div>
+
+    <p>
+      <strong>किन्नर:</strong> पुराणात किन्नर हे एक महिना स्त्री व एक महिना पुरुष होतात, असाही समज आढळतो. जातकात किन्नरांची जात पुष्पप्रेमी आणि प्रणयासक्त अशी दर्शविलेली आहे. त्यांचे प्रेम एकमेकांत अत्यंत मनोज्ञतेने गुरफटलेले दिसते. 
+      <strong>गंधर्व:</strong> हे अग्नीचे रक्षक. कौषीतकी-ब्राह्मणात गंधर्व पाण्यात राहतात आणि स्त्रियांवर भुलतात, असा उल्लेख आढळतो. त्यांना कुंदपुष्पे आवडतात.
+    </p>
+
+    <h3>यक्ष आणि यक्षिणी</h3>
+    <p>
+      यक्ष उन्नत व अवनत असे दोन्ही प्रकारचे आढळतात. यक्ष काळे, कुबडे, ढेरपोटे असल्याचे अनेक उल्लेख जातकांत मिळतात. जैन दिगंबर पंथात तीर्थंकरांचे रक्षक यक्ष असतात. 
+      <em>उदाहरणार्थ:</em> ऋषभाचा यक्ष <strong>गोमुख</strong> (सुवर्णवर्णी, वाहन हत्ती) आणि यक्षिणी <strong>अप्रतिचक्रा</strong> (वाहन गरुड). पार्श्वनाथाची सेविका यक्षिणी <strong>पद्मावती</strong> हिचा वर्ण सोनेरी असून रथ सर्पाचा आहे.
+    </p>
+
+    <h3>राक्षसांची ५ मुख्य बीजे (Motifs)</h3>
+    <ol>
+      <li>राक्षसाच्या घरी विस्तव असतो (गोंडात लिंगोची कथा).</li>
+      <li>राक्षसाला मुली असतात, ज्या बापाच्या विरुद्ध जाऊन मानवी नायकाला मदत करतात.</li>
+      <li>राक्षसिणी पिठे कांडतात (महारी लावण्यांतील वर्णन).</li>
+      <li>राक्षसीण मानवाबरोबर कपटी विवाह करते.</li>
+      <li>राक्षस बलाढ्य असले तरी स्वभावाने मूर्ख असतात.</li>
+    </ol>
+
+    <h3>अतिमानवी योनींची सामान्य वैशिष्ट्ये</h3>
+    <ul>
+      <li>त्यांना मायिक सिद्धी प्राप्त असतात आणि आकाशसंचार सुलभ असतो.</li>
+      <li>अदृश्य होता येते व रूप पालटता येते.</li>
+      <li>कला, संगीत, नृत्यांत प्राविण्य असते.</li>
+      <li>मानवांशी संभोग व अपत्यप्राप्ती शक्य असते.</li>
+      <li>दिवसापेक्षा रात्रिसंचार त्यांना अधिक आवडतो.</li>
+    </ul>
+
+    <h3>: ३ : समारोप</h3>
+    <p>
+      परीकथेत अद्भुताचा परमोत्कर्ष असला, तरी तिच्यात गांभीर्य काठोकाठ भरलेले असते. दुष्टाला शासन व सद्गुणमंडित नायक-नायिकांना सुखाप्राप्ति हा त्यांचा शेवट असतो. परीकथा ही मूलतः ललितकृति असून बोध हे तिचे मूळ उद्दिष्ट नसते, तर नायकाचे चातुर्य व धैर्य हाच कथेचा गाभा असतो.
+    </p>
   </section>
 
-  <section id="dictionary" style="margin-top: 50px;">
-    <h2 style="border-left: 8px solid var(--shahi-red); background: rgba(139, 0, 0, 0.05); padding: 10px 15px;">📖 Glossary (Quick Reference)</h2>
-    <p>Click on the underlined words in the text above or refer to this list:</p>
-    <div style="background: #fff; border: 2px solid var(--antique-gold); padding: 20px; border-radius: 4px;">
-      <ul style="list-style: none; padding: 0;">
-        <li style="margin-bottom: 10px;"><strong>Folk Literature:</strong> लोकसाहित्य</li>
-        <li style="margin-bottom: 10px;"><strong>Historical Variants:</strong> ऐतिहासिक पर्याय</li>
-        <li><strong>Superhuman Beings:</strong> अतिमानवी योनि</li>
-      </ul>
-    </div>
-  </section>
-
-  <footer>
+  <footer class="footer">
     <p>© २०२६ | शैक्षणिक प्रकल्प - भारतीय लोकसाहित्य अभ्यास</p>
-    <p><strong>MIT School of Computing, Pune</strong></p>
+    <p>MIT School of Computing, Pune</p>
   </footer>
 </div>
 
-<script type="text/javascript">
-  // DICTIONARY DATA
-  const meanings = {
-    'folklore': 'Folk Literature (लोकसाहित्य): परंपरेने चालत आलेले मौखिक साहित्य जे पिढ्यानपिढ्या हस्तांतरित होते.',
-    'variants': 'Historical Variants (ऐतिहासिक पर्याय): एकाच कथेचे काळाप्रमाणे किंवा प्रदेशाप्रमाणे बदललेले विविध संदर्भ.',
-    'supernatural': 'Supernaturalism (अद्भुत्व): मानवी बुद्धीला न पटणाऱ्या पण कल्पनेत रम्य वाटणाऱ्या चमत्कारिक घटना.',
-    'species': 'Superhuman Beings (अतिमानवी योनि): मानवापेक्षा वेगळ्या शक्ती असलेल्या प्रजाती (उदा. यक्ष, गंधर्व).'
+<script>
+  const dictData = {
+    'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे काळाप्रमाणे किंवा प्रदेशाप्रमाणे बदललेले विविध संदर्भ.',
+    'supernatural': 'अद्भुतत्व: मानवी बुद्धीला न पटणाऱ्या पण कल्पनेत रम्य वाटणाऱ्या चमत्कारिक घटना.',
+    'champu': 'चंपूप्रकार: गद्य आणि पद्य (Poetry & Prose) यांचे मिश्रण असलेले वाङ्मय.',
+    'panchatantra': 'पंचतंत्र: विष्णू शर्मा यांनी रचलेला, प्राण्यांच्या कथांद्वारे नीती शिकवणारा प्राचीन ग्रंथ.',
+    'yaksha': 'यक्ष: संपत्तीचे रक्षक आणि निसर्गाशी संबंधित प्राचीन अतिमानवी शक्ती.'
   };
 
-  function getMeaning(key) {
-    document.getElementById('modal-text').innerText = meanings[key];
+  function openDict(key) {
+    document.getElementById('dict-text').innerText = dictData[key];
     document.getElementById('dict-overlay').style.display = 'block';
     document.getElementById('dict-modal').style.display = 'block';
   }
 
-  function closeMeaning() {
+  function closeDict() {
     document.getElementById('dict-overlay').style.display = 'none';
     document.getElementById('dict-modal').style.display = 'none';
   }
 
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
-      pageLanguage: 'mr', 
+      pageLanguage: 'mr',
       includedLanguages: 'en,hi,mr',
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
   }
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
