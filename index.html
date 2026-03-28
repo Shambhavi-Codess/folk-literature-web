@@ -34,9 +34,8 @@
 <body>
 
 <div class="header-nav">
-  <button onclick="window.print()" class="nav-btn" style="background:var(--gold); color:white; border:none; padding:5px 10px; cursor:pointer; font-weight:bold; border-radius:4px;">PDF/SAVE PAGE</button>
   <span style="font-weight: bold; letter-spacing: 1px;">MIT ACADEMIC PORTAL</span>
-  <div id="google_translate_element"></div>
+  <button onclick="toggleLanguage()" style="background:white; color:var(--shahi-red); border:none; padding:5px 15px; cursor:pointer; font-weight:bold; border-radius:4px; font-family: 'Khand';">English / मराठी</button>
 </div>
 
 <div id="dict-overlay" onclick="closeDict()"></div>
@@ -47,100 +46,130 @@
   <button onclick="closeDict()" style="background:var(--shahi-red); color:white; border:none; padding:10px 25px; cursor:pointer; border-radius:5px; font-weight:bold;">CLOSE</button>
 </div>
 
-<div class="manuscript">
-  <header style="text-align: center; margin-bottom: 50px;">
-    <h1>लोकसाहित्याची रूपरेखा</h1>
-    <p style="font-size: 1.6rem; font-weight: bold; color: var(--gold);">प्रकरण ५: परीकथा आणि अद्भुतकथा</p>
-  </header>
-
-  <section>
-    <h2>परीकथा किंवा अद्भुतकथा</h2>
-    <p>
-      <span class="dropcap">प</span>रीकथेची लक्षणे क्रोपेंने वर्णिलेली आपण पहिल्या प्रकरणांत पाहिलीच आहेत. तीच गृहीत धरून भारतीय परीकथांच्या गोतवळ्याची छाननी आपल्याला या प्रकरणांत करायची आहे. या प्रकरणांत मुख्यतः पुढील मुद्द्यांचा विचार करायचा आहे: (१) भारतीय परीकथा आणि <span class="dict-link" onclick="openDict('variants')">ऐतिहासिक पर्याय</span> (२) भारतीय परीकथांतील <span class="dict-link" onclick="openDict('supernatural')">अद्भुतत्व</span>, म्हणजेच अतिमानवी योनींचा विचार आणि अद्भुत घटनांचा विचार.
-    </p>
-
-    <h3>: १ : ऐतिहासिक पर्याय</h3>
-    <div style="text-align: center; margin: 30px 0; background: #fff; padding: 15px; border: 1px solid #ddd;">
-  <img src="parikatha1.jpeg" style="max-width: 100%; height: auto;" alt="Historical Context">
-  <img src="parikatha2.jpeg" style="max-width: 100%; height: auto; margin-top:10px;" alt="Folklore Outline">
-  <p style="color: var(--shahi-red); font-weight: bold; font-family: 'Khand';">संदर्भ चित्र १ व २: ऐतिहासिक परंपरा</p>
-</div>
-    <p>
-      भारतीय कथावाङ्मयाची प्राचीन परंपरा आणि भारतीय धार्मिक व वाङ्मयीन प्रयोगांची अखंडितता पाहिल्यास, ऐतिहासिक पर्यायांना भारतीय परंपरेंत किती महत्त्व आहे हे सहज कळून येतें. जगभरच्या लोककथांना ऐतिहासिक पर्यायाची पार्श्वभूमि अशी नाहीं. ग्रीक किंवा मिसरी अपवाद सोडल्यास बरेंचसें युरोपियन व आफ्रिकेचें लोककथात्मक साहित्य केवळ दंतपरंपरेवर आधारलेलें आहे. ऑस्ट्रेलिया, कॅलिफोर्नियाच्या कथा तर केवळ स्मृतींनीं सुरक्षितलेल्या आढळतात.
-    </p>
-    <p>
-      ज्या मानानें देशाची संस्कृति पुरातन, प्रगल्भ व साहित्यसंपन्न त्या मानानें त्या देशांत अद्भुत कथांचा आढळ समृद्ध व बहुढंगी असतो. परीकथा हा एक गुंतागुंतीचा गद्यप्रकार, किंवा गद्यपद्यमिश्रित <span class="dict-link" onclick="openDict('champu')">चंपूप्रकार</span> असून त्याचा आविष्कार परम गांभीर्याने भरलेला असतो. राजा विक्रमाचा दरबार हा मध्ययुगीन राजांच्या दरबाराचे प्रतीक नसते, तर <span class="dict-link" onclick="openDict('panchatantra')">पंचतंत्रातल्या</span> वनराजाच्या सभेचे प्रतीक असते.
-    </p>
-
-    <h3>: २ : अतिमानवी योनी</h3>
-    <div style="text-align: center; margin: 30px 0; background: #fff; padding: 15px; border: 1px solid #ddd;">
-  <img src="parikatha3.jpeg" style="max-width: 100%; height: auto;" alt="Supernatural Beings">
-  <p style="color: var(--shahi-red); font-weight: bold; font-family: 'Khand';">संदर्भ चित्र ३: यक्ष आणि गंधर्व</p>
-</div>
-    <p>
-      भारतीय अद्भुत कथांतल्या प्राचीनतम अतिमानवी योनी: <strong>यक्ष, गंधर्व, किन्नर, गुह्यक, राक्षस, विद्याधर व सर्प</strong> यांच्या आहेत. गंधर्व म्हणजे माणसाच्या मृत्यूनंतर पुन्हा जन्म घेण्याच्या आधीच्या अवस्थेत असणारा त्याचा आत्मा होय, अशी ही समजूत आहे.
-    </p>
-    <div class="citation">Sir Graves C. Haughton, Dictionary, Bengali and Sanskrit, p. 918.</div>
-
-    <p>
-      <strong>किन्नर:</strong> पुराणात किन्नर हे एक महिना स्त्री व एक महिना पुरुष होतात, असाही समज आढळतो. जातकात किन्नरांची जात पुष्पप्रेमी आणि प्रणयासक्त अशी दर्शविलेली आहे. त्यांचे प्रेम एकमेकांत अत्यंत मनोज्ञतेने गुरफटलेले दिसते. 
-      <strong>गंधर्व:</strong> हे अग्नीचे रक्षक. कौषीतकी-ब्राह्मणात गंधर्व पाण्यात राहतात आणि स्त्रियांवर भुलतात, असा उल्लेख आढळतो. त्यांना कुंदपुष्पे आवडतात.
-    </p>
-
-    <h3>यक्ष आणि यक्षिणी</h3>
-    <p>
-      यक्ष उन्नत व अवनत असे दोन्ही प्रकारचे आढळतात. यक्ष काळे, कुबडे, ढेरपोटे असल्याचे अनेक उल्लेख जातकांत मिळतात. जैन दिगंबर पंथात तीर्थंकरांचे रक्षक यक्ष असतात. 
-      <em>उदाहरणार्थ:</em> ऋषभाचा यक्ष <strong>गोमुख</strong> (सुवर्णवर्णी, वाहन हत्ती) आणि यक्षिणी <strong>अप्रतिचक्रा</strong> (वाहन गरुड). पार्श्वनाथाची सेविका यक्षिणी <strong>पद्मावती</strong> हिचा वर्ण सोनेरी असून रथ सर्पाचा आहे.
-    </p>
-
-    <h3>राक्षसांची ५ मुख्य बीजे (Motifs)</h3>
-    <div style="text-align: center; margin: 30px 0; background: #fff; padding: 15px; border: 1px solid #ddd;">
-  <img src="dantkatha1.jpeg" style="max-width: 100%; height: auto;" alt="Rakshasa Motifs">
-  <img src="dantkatha2.jpeg" style="max-width: 100%; height: auto; margin-top:10px;" alt="Cultural Legacy">
-  <p style="color: var(--shahi-red); font-weight: bold; font-family: 'Khand';">संदर्भ चित्र ४ व ५: लोककथा आणि वारसा</p>
-</div>
-    <ol>
-      <li>राक्षसाच्या घरी विस्तव असतो (गोंडात लिंगोची कथा).</li>
-      <li>राक्षसाला मुली असतात, ज्या बापाच्या विरुद्ध जाऊन मानवी नायकाला मदत करतात.</li>
-      <li>राक्षसिणी पिठे कांडतात (महारी लावण्यांतील वर्णन).</li>
-      <li>राक्षसीण मानवाबरोबर कपटी विवाह करते.</li>
-      <li>राक्षस बलाढ्य असले तरी स्वभावाने मूर्ख असतात.</li>
-    </ol>
-
-    <h3>अतिमानवी योनींची सामान्य वैशिष्ट्ये</h3>
-    <ul>
-      <li>त्यांना मायिक सिद्धी प्राप्त असतात आणि आकाशसंचार सुलभ असतो.</li>
-      <li>अदृश्य होता येते व रूप पालटता येते.</li>
-      <li>कला, संगीत, नृत्यांत प्राविण्य असते.</li>
-      <li>मानवांशी संभोग व अपत्यप्राप्ती शक्य असते.</li>
-      <li>दिवसापेक्षा रात्रिसंचार त्यांना अधिक आवडतो.</li>
-    </ul>
-
-    <h3>: ३ : समारोप</h3>
-    <p>
-      परीकथेत अद्भुताचा परमोत्कर्ष असला, तरी तिच्यात गांभीर्य काठोकाठ भरलेले असते. दुष्टाला शासन व सद्गुणमंडित नायक-नायिकांना सुखाप्राप्ति हा त्यांचा शेवट असतो. परीकथा ही मूलतः ललितकृति असून बोध हे तिचे मूळ उद्दिष्ट नसते, तर नायकाचे चातुर्य व धैर्य हाच कथेचा गाभा असतो.
-    </p>
-  </section>
-
-  <footer class="footer">
-    <p>© २०२६ | शैक्षणिक प्रकल्प - भारतीय लोकसाहित्य अभ्यास</p>
-    <p>MIT School of Computing, Pune</p>
-  </footer>
-</div>
+<div class="manuscript" id="page-content">
+  </div>
 
 <script>
-  const dictData = {
-    'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे काळाप्रमाणे किंवा प्रदेशाप्रमाणे बदललेले विविध संदर्भ.',
-    'supernatural': 'अद्भुतत्व: मानवी बुद्धीला न पटणाऱ्या पण कल्पनेत रम्य वाटणाऱ्या चमत्कारिक घटना.',
-    'champu': 'चंपूप्रकार: गद्य आणि पद्य (Poetry & Prose) यांचे मिश्रण असलेले वाङ्मय.',
-    'panchatantra': 'पंचतंत्र: विष्णू शर्मा यांनी रचलेला, प्राण्यांच्या कथांद्वारे नीती शिकवणारा प्राचीन ग्रंथ.',
-    'yaksha': 'यक्ष: संपत्तीचे रक्षक आणि निसर्गाशी संबंधित प्राचीन अतिमानवी शक्ती.',
-    'kinnar': 'किन्नर: अश्वमुख आणि मानवी देह असलेली, गायन-वादनात निपुण अतिमानवी योनी.',
-    'motif': 'बीज (Motif): लोककथेत वारंवार येणारा एखादा महत्त्वाचा घटक किंवा कल्पना.'
-  };
+  // THIS IS THE FULL CONTENT. NO DELETIONS.
+  const academicData = {
+    mr: {
+      title: "लोकसाहित्याची रूपरेखा",
+      subtitle: "प्रकरण ५: परीकथा आणि अद्भुतकथा",
+      intro: "परीकथेची लक्षणे क्रोपेंने वर्णिलेली आपण पहिल्या प्रकरणांत पाहिलीच आहेत. तीच गृहीत धरून भारतीय परीकथांच्या गोतवळ्याची छाननी आपल्याला या प्रकरणांत करायची आहे. या प्रकरणांत मुख्यतः पुढील मुद्द्यांचा विचार करायचा आहे: (१) भारतीय परीकथा आणि <span class='dict-link' onclick='openDict(\"variants\")'>ऐतिहासिक पर्याय</span> (२) भारतीय परीकथांतील अद्भुतत्व, म्हणजेच अतिमानवी योनींचा विचार आणि अद्भुत घटनांचा विचार.",
+      histTitle: ": १ : ऐतिहासिक पर्याय",
+      histPara: "भारतीय कथावाङ्मयाची प्राचीन परंपरा आणि भारतीय धार्मिक व वाङ्मयीन प्रयोगांची अखंडितता पाहिल्यास, ऐतिहासिक पर्यायांना भारतीय परंपरेंत किती महत्त्व आहे हे सहज कळून येतें. जगभरच्या लोककथांना ऐतिहासिक पर्यायाची पार्श्वभूमि अशी नाहीं. ग्रीक किंवा मिसरी अपवाद सोडल्यास बरेंचसें युरोपियन व आफ्रिकेचें लोककथात्मक साहित्य केवळ दंतपरंपरेवर आधारलेलें आहे. ऑस्ट्रेलिया, कॅलिफोर्नियाच्या कथा तर केवळ स्मृतींनीं सुरक्षितलेल्या आढळतात. राजा विक्रमाचा दरबार हा मध्ययुगीन राजांच्या दरबाराचे प्रतीक नसते, तर <span class='dict-link' onclick='openDict(\"panchatantra\")'>पंचतंत्रातल्या</span> वनराजाच्या सभेचे प्रतीक असते. ऐतिहासिक वातावरणापासून परीकथेतल्या अनेक वर्णनांच्या बाबी अलग राहिलेल्या दिसतात. आदिमानवी पार्श्वभूमीचे अवशेष त्या जपून ठेवताना दिसतात. ज्या ज्या प्रदेशांत वन्यसंस्कृतीशिवाय, अगदी प्राथमिक संस्कृतीशिवाय, कुठलीही संस्कृती पोचली नाही, तिथे परीकथा किंवा अद्भुतकथा आढळत नाहीत. उदाहरणार्थ, मध्य आफ्रिकेतल्या निग्रो लोकांना परीकथा माहीत नाहीत. ऑस्ट्रेलियातल्याही अत्यंत रानटी लोकांत अद्भुतकथा नाहीत. अमेरिकेतल्या नॉर्थ इंडियन लोकांतही त्यांचा अभाव आहे.",
+      beingsTitle: ": २ : अतिमानवी योनी",
+      beingsPara: "भारतीय अद्भुत कथांतल्या प्राचीनतम अतिमानवी योनी: यक्ष, गंधर्व, किन्नर, गुह्यक, राक्षस, विद्याधर व सर्प यांच्या आहेत. या सर्व अतिमानवी योनींपैकी यक्षांवर फक्त डॉ. आनंद कुमारस्वामी यांनी उत्कृष्ट स्वतंत्र ग्रंथ Yaksas हा लिहिला आहे. गंधर्व-किन्नरांबद्दल असे वाङ्मय फ्रेंच भाषेखेरीज अन्यत्र नाही. नागांविषयी मात्र विपुल वाङ्मय उपलब्ध आहे. गंधर्व म्हणजे माणसाच्या मृत्यूनंतर पुन्हा जन्म घेण्याच्या आधीच्या अवस्थेत असणारा त्याचा आत्मा होय, अशी ही समजूत आहे.",
+      kinnarFull: "किन्नर हे एक महिना स्त्री व एक महिना पुरुष होतात, असाही समज पुराणांत आढळतो. जातकात किन्नरांची जात पुष्पप्रेमी आणि प्रणयासक्त अशी दर्शविलेली आहे. पण ही प्रणयासक्तता यक्षांसारखी स्वैर नव्हे. जातकांत वर्णन आहे की, एक रात्रभर वियुक्त झालेले किन्नर-युगल दुसऱ्या दिवशी सकाळी भेट झाल्यावर एकमेकांना मिठी मारून, एकमेकांची चुंबने घेत आळीपाळीने रडत व हसत ती दोघे कित्येक वर्षे त्याच स्थितीत राहिली, असे वर्णन आहे. गाणे, नाचणे त्यांच्या अंगी मुरलेले.",
+      jainFull: "जैन दिगंबर पंथात तीर्थंकरांचे रक्षक यक्ष असतात. उदाहरणार्थ: ऋषभाचा यक्ष गोमुख (सुवर्णवर्णी, वाहन हत्ती) आणि यक्षिणी अप्रतिचक्रा (आठ हात, वाहन गरुड). पार्श्वनाथाची सेविका यक्षिणी पद्मावती हिचा वर्ण सोनेरी असून रथ सर्पाचा आहे. नागांविषयीचे उल्लेख तर किती आहेत त्यांची गणतीच नाही. नागांची वारुळे वरून दरिद्री दिसली, तरी पाताळलोकी अनंत रत्नांच्या राशी असतात.",
+      rakshasTitle: "राक्षसांची ५ मुख्य बीजे (Motifs)",
+      rakshasItems: [
+        "राक्षसाच्या घरी विस्तव असतो (गोंडात लिंगोची कथा).",
+        "राक्षसाला मुली असतात, ज्या बापाच्या विरुद्ध जाऊन मानवी नायकाला मदत करतात.",
+        "राक्षसिणी पिठे कांडतात (महारी लावण्यांतील वर्णन).",
+        "राक्षसीण मानवाबरोबर कपटी विवाह करते.",
+        "राक्षस किंवा राक्षसीण बलाढ्य असली तरी स्वभावाने मूर्ख असतात. नायक व नायिका त्यांना फसवून त्यांच्यावर मात करतात."
+      ],
+      features: [
+        "त्यांना मायिक सिद्धी प्राप्त असतात आणि आकाशसंचार सुलभ असतो.",
+        "अदृश्य होता येते व रूप पालटता येते.",
+        "कला, संगीत, नृत्यांत प्राविण्य असते.",
+        "मानवांशी संभोग व अपत्यप्राप्ती शक्य असते.",
+        "त्यांची मानवापासून झालेली अपत्ये मानवी असतात.",
+        "पक्ष्यांप्रमाणे त्यांना उडताना पंख लागत नाहीत.",
+        "दिवसापेक्षा रात्रिसंचार त्यांना अधिक आवडतो."
+      ]
+    },
+    en: {
+      title: "Outline of Folklore",
+      subtitle: "Chapter 5: Fairy Tales and Wonder Tales",
+      intro: "We explore the core characteristics of Indian fairy tales here, focusing on: (1) Historical Variants and (2) Supernatural Elements.",
+      histTitle: ": 1 : Historical Variants",
+      histPara: "Indian traditions show deep continuity. King Vikram's court is a symbol of the assembly in Panchatantra. Unlike India, fairy tales are unknown to native tribes in Central Africa and Australia.",
+      beingsTitle: ": 2 : Superhuman Beings",
+      beingsPara: "The oldest species include Yakshas, Gandharvas, Kinnars, and Rakshasas. Gandharvas are believed to be souls awaiting rebirth.",
+      kinnarFull: "In Puranas, Kinnars change gender monthly. Jataka tales describe them as romantic; one story tells of a couple separated for a night who reunited and spent years embracing, laughing and crying together.",
+      jainFull: "In Jainism, Tirthankaras have guardians like Gomukh (for Rishabha) and Padmavati (for Parshvanatha), who has a golden complexion and a serpent chariot.",
+      rakshasTitle: "5 Main Motifs of Rakshasas",
+      rakshasItems: [
+        "Fire is found in their homes.",
+        "Daughters help the hero against the father.",
+        "Ogresses grind flour.",
+        "They enter into deceitful marriages with humans.",
+        "They are powerful but foolish."
+      ],
+      features: [
+        "Mystical powers and sky travel.",
+        "Invisibility and shape-shifting.",
+        "Expertise in arts and music.",
+        "Reproduction with humans.",
+        "Human-like offspring.",
+        "Flight without wings.",
+        "Preference for night travel."
+      ]
+    }
   };
 
+  let currentLang = 'mr';
+
+  function renderPage() {
+    const d = academicData[currentLang];
+    document.getElementById('page-content').innerHTML = `
+      <header style="text-align: center; margin-bottom: 50px;">
+        <h1>${d.title}</h1>
+        <p style="font-size: 1.6rem; font-weight: bold; color: var(--gold);">${d.subtitle}</p>
+      </header>
+
+      <div style="text-align: center; margin: 30px 0; background: #fff; padding: 15px; border: 1px solid #ddd;">
+        <img src="parikatha1.jpeg" style="max-width: 45%; height: auto;">
+        <img src="parikatha2.jpeg" style="max-width: 45%; height: auto; margin-left: 5px;">
+        <p style="color:var(--shahi-red); font-weight:bold; font-family:'Khand';">चित्र १ व २: ऐतिहासिक परंपरा</p>
+      </div>
+
+      <p>${d.intro}</p>
+      <h3>${d.histTitle}</h3>
+      <p>${d.histPara}</p>
+
+      <div style="text-align: center; margin: 30px 0; background: #fff; padding: 15px; border: 1px solid #ddd;">
+        <img src="parikatha3.jpeg" style="max-width: 80%; height: auto;">
+        <p style="color:var(--shahi-red); font-weight:bold; font-family:'Khand';">चित्र ३: अतिमानवी योनी</p>
+      </div>
+
+      <h3>${d.beingsTitle}</h3>
+      <p>${d.beingsPara}</p>
+      <p>${d.kinnarFull}</p>
+
+      <h3>यक्ष आणि यक्षिणी (जैन संदर्भ)</h3>
+      <p>${d.jainFull}</p>
+
+      <div style="text-align: center; margin: 30px 0; background: #fff; padding: 15px; border: 1px solid #ddd;">
+        <img src="dantkatha1.jpeg" style="max-width: 45%; height: auto;">
+        <img src="dantkatha2.jpeg" style="max-width: 45%; height: auto; margin-left: 5px;">
+        <p style="color:var(--shahi-red); font-weight:bold; font-family:'Khand';">चित्र ४ व ५: लोककथा वारसा</p>
+      </div>
+
+      <h3>${d.rakshasTitle}</h3>
+      <ol style="font-size: 1.25rem;">${d.rakshasItems.map(i => `<li>${i}</li>`).join('')}</ol>
+
+      <h3>अतिमानवी योनींची सामान्य वैशिष्ट्ये</h3>
+      <ul style="font-size: 1.25rem;">${d.features.map(f => `<li>${f}</li>`).join('')}</ul>
+
+      <footer style="text-align:center; margin-top:50px; border-top:1px solid #ccc; padding-top:20px;">
+        <p>© २०२६ | MIT ADT University, Pune</p>
+      </footer>
+    `;
+  }
+
+  function toggleLanguage() {
+    currentLang = (currentLang === 'mr') ? 'en' : 'mr';
+    renderPage();
+  }
+
   function openDict(key) {
+    const dictData = {
+      'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे विविध संदर्भ.',
+      'panchatantra': 'पंचतंत्र: नीती शिकवणारा प्राचीन ग्रंथ.'
+    };
     document.getElementById('dict-text').innerText = dictData[key];
     document.getElementById('dict-overlay').style.display = 'block';
     document.getElementById('dict-modal').style.display = 'block';
@@ -151,15 +180,9 @@
     document.getElementById('dict-modal').style.display = 'none';
   }
 
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'mr',
-      includedLanguages: 'en,hi,mr',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
+  // RUN INITIAL LOAD
+  renderPage();
 </script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
