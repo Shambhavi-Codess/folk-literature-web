@@ -2,123 +2,166 @@
 <html lang="mr">
 <head>
   <meta charset="UTF-8">
-  <title>लोकसाहित्याची रूपरेखा - मूल्यांकन</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>लोकसाहित्याची रूपरेखा - प्रकरण ५</title>
+  
   <style>
     :root { --maroon: #8B0000; --gold: #b8964d; --paper: #fdfbf7; }
-    <body>
-  <div id="dict-overlay" onclick="closeDict()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;"></div>
-  <div id="dict-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:3px solid #b8964d; z-index:10000; width:300px; text-align:center; border-radius:10px;">
-    <h3 style="color:#8B0000; margin-top:0;">संदर्भ</h3>
-    <p id="dict-text" style="font-size:1.1rem;"></p>
-    <button onclick="closeDict()" style="background:#8B0000; color:white; border:none; padding:10px; cursor:pointer;">CLOSE</button>
-  </div>
-
-  <h1>लोकसाहित्याची रूपरेखा</h1>
-  ...
-    { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f0f0; margin: 0; padding: 20px; line-height: 1.6; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; line-height: 1.6; }
     
-    /* THE DICTIONARY BOX - High Priority */
-    #dict-modal { 
-      display: none; position: fixed; top: 50%; left: 50%; 
-      transform: translate(-50%, -50%); background: white; 
-      padding: 30px; border: 5px solid var(--gold); 
-      z-index: 10000; width: 350px; border-radius: 15px; 
-      box-shadow: 0 0 100px rgba(0,0,0,0.5); text-align: center; 
-    }
-    #dict-overlay { 
-      display: none; position: fixed; top: 0; left: 0; 
-      width: 100%; height: 100%; background: rgba(0,0,0,0.8); 
-      z-index: 9999; 
-    }
+    /* Navigation & Translator Button */
+    .top-bar { background: var(--maroon); color: white; padding: 15px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    .lang-btn { background: white; color: var(--maroon); border: none; padding: 8px 15px; cursor: pointer; font-weight: bold; border-radius: 5px; }
 
-    .container { max-width: 850px; margin: auto; background: var(--paper); padding: 50px; border: 1px solid #ccc; }
-    h1 { color: var(--maroon); border-bottom: 3px double var(--gold); text-align: center; }
-    h3 { color: #444; border-left: 5px solid var(--maroon); padding-left: 10px; margin-top: 30px; }
+    /* Dictionary Modal (Highest Priority) */
+    #dict-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; }
+    #dict-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border: 4px solid var(--gold); z-index: 10000; width: 320px; border-radius: 12px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
     
-    .dict-link { color: var(--maroon); border-bottom: 2px dashed var(--gold); cursor: pointer; font-weight: bold; }
-    .dict-link:hover { background: #fff3d1; }
+    .manuscript { max-width: 850px; margin: 20px auto; background: var(--paper); padding: 40px; border: 1px solid #ccc; min-height: 100vh; }
+    .dict-link { color: var(--maroon); border-bottom: 2px dashed var(--gold); cursor: help; font-weight: bold; }
+    
+    /* Image Styling */
+    .img-box { text-align: center; margin: 25px 0; background: #fff; padding: 15px; border: 1px solid #ddd; }
+    img { max-width: 100%; height: auto; border: 1px solid #eee; margin: 5px; }
 
-    .img-section { text-align: center; margin: 25px 0; background: #fff; padding: 15px; border: 1px solid #ddd; }
-    img { max-width: 100%; height: auto; display: inline-block; border: 1px solid #eee; }
+    h1, h2 { color: var(--maroon); border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
     
-    button { background: var(--maroon); color: white; border: none; padding: 10px 25px; cursor: pointer; font-weight: bold; border-radius: 5px; margin-top: 15px; }
+    /* Translation Logic */
+    .content-en { display: none; } /* English starts hidden */
   </style>
 </head>
-  <body>
+<body>
 
-  <div id="dict-overlay" onclick="closeDict()"></div>
-  <div id="dict-modal">
-    <h2 style="color: var(--maroon); margin-top: 0;">संदर्भ</h2>
-    <hr color="#b8964d">
-    <p id="dict-text" style="font-size: 1.3rem; font-weight: 500; min-height: 50px;"></p>
-    <button onclick="closeDict()">बंद करा (CLOSE)</button>
-  </div>
+<div id="dict-overlay" onclick="closeDict()"></div>
+<div id="dict-modal">
+  <h2 id="modal-title" style="color: var(--maroon); margin-top:0;">संदर्भ</h2>
+  <hr color="#b8964d">
+  <p id="dict-text" style="font-size: 1.2rem; font-weight: bold; margin: 20px 0;"></p>
+  <button onclick="closeDict()" style="background:var(--maroon); color:white; border:none; padding:10px 20px; cursor:pointer; font-weight:bold;">CLOSE / बंद करा</button>
+</div>
 
-  <div class="container">
+<div class="top-bar">
+  <span style="font-weight:bold;">MIT ACADEMIC PORTAL</span>
+  <button class="lang-btn" onclick="toggleLang()">Translate to English / मराठी</button>
+</div>
+
+<div class="manuscript">
+  
+  <div id="lang-mr">
     <h1>लोकसाहित्याची रूपरेखा</h1>
-    <p style="text-align:center; font-weight:bold; color:var(--gold);">प्रकरण ५: परीकथा आणि अद्भुतकथा</p>
+    <p style="font-weight:bold; color:var(--gold);">प्रकरण ५: परीकथा आणि अद्भुतकथा</p>
 
-    <div class="img-section">
-      <img src="parikatha1.jpeg" style="width:48%" alt="Image 1">
-      <img src="parikatha2.jpeg" style="width:48%" alt="Image 2">
-      <p style="color:var(--maroon); font-size: 0.9rem;"><i>चित्र १ व २: लोककथा आणि ऐतिहासिक परंपरा</i></p>
+    <div class="img-box">
+      <img src="parikatha1.jpeg" style="width:45%" alt="Img 1">
+      <img src="parikatha2.jpeg" style="width:45%" alt="Img 2">
+      <p style="color:var(--maroon);"><b>चित्र १ व २: ऐतिहासिक परंपरा</b></p>
     </div>
 
-    <p>परीकथेची लक्षणे आपण पाहिली आहेत. येथे आपण <span class="dict-link" onclick="openDict('champu')">चंपूप्रकार</span> पाहू शकतो. यात <span class="dict-link" onclick="openDict('variants')">ऐतिहासिक पर्याय</span> महत्त्वाचे आहेत.</p>
+    <p>परीकथेची लक्षणे आपण पहिल्या प्रकरणांत पाहिलीच आहेत. येथे आपण <span class="dict-link" onclick="openDict('champu', 'mr')">चंपूप्रकार</span> पाहू शकतो. या प्रकरणांत मुख्यतः पुढील मुद्द्यांचा विचार करायचा आहे: (१) भारतीय परीकथा आणि <span class="dict-link" onclick="openDict('variants', 'mr')">ऐतिहासिक पर्याय</span> (२) भारतीय परीकथांतील अद्भुतत्व.</p>
 
     <h3>१. ऐतिहासिक पर्याय</h3>
-    <p>भारतीय कथावाङ्मयाची प्राचीन परंपरा पाहिल्यास ऐतिहासिक पर्यायांना महत्त्व आहे. राजा विक्रमाचा दरबार हा <span class="dict-link" onclick="openDict('panch')">पंचतंत्रातल्या</span> वनराजाच्या सभेचे प्रतीक असते. मध्य आफ्रिकेतल्या निग्रो लोकांना परीकथा माहीत नाहीत.</p>
+    <p>भारतीय कथावाङ्मयाची प्राचीन परंपरा पाहिल्यास ऐतिहासिक पर्यायांना महत्त्व आहे. राजा विक्रमाचा दरबार हा <span class="dict-link" onclick="openDict('panch', 'mr')">पंचतंत्रातल्या</span> वनराजाच्या सभेचे प्रतीक असते. मध्य आफ्रिकेतल्या निग्रो लोकांना परीकथा माहीत नाहीत.</p>
 
-    <div class="img-section">
-      <img src="parikatha3.jpeg" style="width:70%" alt="Image 3">
-      <p style="color:var(--maroon); font-size: 0.9rem;"><i>चित्र ३: अतिमानवी योनी - यक्ष आणि किन्नर</i></p>
+    <div class="img-box">
+      <img src="parikatha3.jpeg" style="width:70%" alt="Img 3">
+      <p style="color:var(--maroon);"><b>चित्र ३: अतिमानवी योनी</b></p>
     </div>
 
     <h3>२. अतिमानवी योनी</h3>
-    <p>किन्नर हे महिना स्त्री व महिना पुरुष होतात असा समज आढळतो. जैन दिगंबर पंथात तीर्थंकरांचे रक्षक <span class="dict-link" onclick="openDict('yaksha')">यक्ष</span> असतात. ऋषभाचा यक्ष गोमुख आणि पार्श्वनाथाची सेविका पद्मावती होय.</p>
+    <p>किन्नर हे महिना स्त्री व महिना पुरुष होतात असा समज आढळतो. जैन दिगंबर पंथात तीर्थंकरांचे रक्षक <span class="dict-link" onclick="openDict('yaksha', 'mr')">यक्ष</span> असतात. ऋषभाचा यक्ष गोमुख आणि पार्श्वनाथाची सेविका पद्मावती होय.</p>
 
-    <div class="img-section">
-      <img src="dantkatha1.jpeg" style="width:48%" alt="Image 4">
-      <img src="dantkatha2.jpeg" style="width:48%" alt="Image 5">
-      <p style="color:var(--maroon); font-size: 0.9rem;"><i>चित्र ४ व ५: लोककथा वारसा</i></p>
+    <div class="img-box">
+      <img src="dantkatha1.jpeg" style="width:45%" alt="Img 4">
+      <img src="dantkatha2.jpeg" style="width:45%" alt="Img 5">
+      <p style="color:var(--maroon);"><b>चित्र ४ व ५: लोककथा वारसा</b></p>
     </div>
 
-    <h3>राक्षसांची ५ मुख्य बीजे (Motifs)</h3>
-    <ul style="font-size: 1.2rem;">
+    <h3>राक्षसांची ५ मुख्य बीजे</h3>
+    <ul>
       <li>राक्षसाच्या घरी विस्तव असतो.</li>
       <li>मुली बापाविरुद्ध नायकाला मदत करतात.</li>
       <li>राक्षसिणी पिठे कांडतात.</li>
       <li>राक्षसीण कपटी विवाह करते.</li>
       <li>राक्षस बलाढ्य पण मूर्ख असतात.</li>
     </ul>
-    
-    <footer style="margin-top:50px; text-align:center; font-size:0.8rem; color:#999; border-top:1px solid #eee; padding-top:20px;">
-      MIT School of Bioengineering Sciences and Research
-    </footer>
   </div>
-   <script>
-    const dictionary = {
-      'champu': 'चंपूप्रकार: गद्य आणि पद्य (Prose & Poetry) यांचे मिश्रण.',
-      'variants': 'ऐतिहासिक पर्याय: विविध संदर्भ.',
-      'panch': 'पंचतंत्र: नीती शिकवणारा ग्रंथ.',
+
+  <div id="lang-en" class="content-en">
+    <h1>Outline of Folklore</h1>
+    <p style="font-weight:bold; color:var(--gold);">Chapter 5: Fairy Tales and Wonder Tales</p>
+
+    <div class="img-box">
+      <img src="parikatha1.jpeg" style="width:45%">
+      <img src="parikatha2.jpeg" style="width:45%">
+      <p><b>Figures 1 & 2: Historical Tradition</b></p>
+    </div>
+
+    <p>We explore Indian fairy tales here. We can see the <span class="dict-link" onclick="openDict('champu', 'en')">Champu style</span>. We focus on: (1) <span class="dict-link" onclick="openDict('variants', 'en')">Historical Variants</span> and (2) Supernatural elements.</p>
+
+    <h3>1. Historical Variants</h3>
+    <p>King Vikram's court symbolizes the assembly in <span class="dict-link" onclick="openDict('panch', 'en')">Panchatantra</span>. Native tribes in Central Africa do not have fairy tales.</p>
+
+    <h3>2. Superhuman Beings</h3>
+    <p>In Jainism, Tirthankaras are protected by <span class="dict-link" onclick="openDict('yaksha', 'en')">Yakshas</span>. Kinnars are believed to change gender monthly.</p>
+
+    <h3>5 Motifs of Rakshasas</h3>
+    <ul>
+      <li>Presence of fire at home.</li>
+      <li>Daughters help the hero.</li>
+      <li>Ogresses grinding flour.</li>
+      <li>Deceitful marriages.</li>
+      <li>Powerful but foolish nature.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  // Dictionary Data
+  const dict = {
+    mr: {
+      'champu': 'चंपूप्रकार: गद्य आणि पद्य यांचे मिश्रण.',
+      'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे विविध संदर्भ.',
+      'panch': 'पंचतंत्र: नीती शिकवणारा प्राचीन ग्रंथ.',
       'yaksha': 'यक्ष: संपत्तीचे रक्षक.'
-    };
-
-    function openDict(key) {
-      const meaning = dictionary[key];
-      if (meaning) {
-        document.getElementById('dict-text').innerText = meaning;
-        document.getElementById('dict-overlay').style.display = 'block';
-        document.getElementById('dict-modal').style.display = 'block';
-      }
+    },
+    en: {
+      'champu': 'Champu Style: Literature mixing Prose and Poetry.',
+      'variants': 'Historical Variants: Different versions of a story.',
+      'panch': 'Panchatantra: Ancient Indian fables.',
+      'yaksha': 'Yaksha: Guardians of wealth.'
     }
+  };
 
-    function closeDict() {
-      document.getElementById('dict-overlay').style.display = 'none';
-      document.getElementById('dict-modal').style.display = 'none';
+  // Translator Logic
+  let currentLang = 'mr';
+  function toggleLang() {
+    const mrDiv = document.getElementById('lang-mr');
+    const enDiv = document.getElementById('lang-en');
+    if (currentLang === 'mr') {
+      mrDiv.style.display = 'none';
+      enDiv.style.display = 'block';
+      currentLang = 'en';
+    } else {
+      mrDiv.style.display = 'block';
+      enDiv.style.display = 'none';
+      currentLang = 'mr';
     }
-  </script>
-</body>
-</html>
+  }
+
+  // Dictionary Logic
+  function openDict(key, lang) {
+    document.getElementById('dict-text').innerText = dict[lang][key];
+    document.getElementById('modal-title').innerText = (lang === 'mr') ? 'संदर्भ' : 'Reference';
+    document.getElementById('dict-overlay').style.display = 'block';
+    document.getElementById('dict-modal').style.display = 'block';
+  }
+
+  function closeDict() {
+    document.getElementById('dict-overlay').style.display = 'none';
+    document.getElementById('dict-modal').style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
