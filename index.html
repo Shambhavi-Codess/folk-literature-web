@@ -43,7 +43,8 @@
     <p id="dict-text" style="font-size: 1.3rem; font-weight: 500; min-height: 50px;"></p>
     <button onclick="closeDict()">बंद करा (CLOSE)</button>
   </div>
-    <div class="container">
+
+  <div class="container">
     <h1>लोकसाहित्याची रूपरेखा</h1>
     <p style="text-align:center; font-weight:bold; color:var(--gold);">प्रकरण ५: परीकथा आणि अद्भुतकथा</p>
 
@@ -110,5 +111,27 @@
       document.getElementById('dict-modal').style.display = 'none';
     }
   </script>
+<script>
+  const dictionary = {
+    'champu': 'चंपूप्रकार: गद्य आणि पद्य (Prose & Poetry) यांचे मिश्रण असलेले वाङ्मय.',
+    'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे विविध संदर्भ.',
+    'panch': 'पंचतंत्र: नीती शिकवणारा प्राचीन ग्रंथ.',
+    'yaksha': 'यक्ष: संपत्तीचे रक्षक.'
+  };
+
+  function openDict(key) {
+    const meaning = dictionary[key];
+    if (meaning) {
+      document.getElementById('dict-text').innerText = meaning;
+      document.getElementById('dict-overlay').style.display = 'block';
+      document.getElementById('dict-modal').style.display = 'block';
+    }
+  }
+
+  function closeDict() {
+    document.getElementById('dict-overlay').style.display = 'none';
+    document.getElementById('dict-modal').style.display = 'none';
+  }
+</script>
 </body>
 </html>
