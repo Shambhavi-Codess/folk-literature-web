@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="mr">
 <head>
   <meta charset="UTF-8">
@@ -100,106 +100,178 @@
   </div>
 
 <script>
-  // 1. DATA STORAGE
-  const dictionaryData = {
-    mr: {
-      'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे काळाप्रमाणे किंवा प्रदेशाप्रमाणे बदललेले विविध संदर्भ.',
-      'champu': 'चंपूप्रकार: गद्य आणि पद्य (Prose & Poetry) यांचे मिश्रण असलेले वाङ्मय.',
-      'panchatantra': 'पंचतंत्र: नीती शिकवणारा प्राचीन ग्रंथ.',
-      'yaksha': 'यक्ष: संपत्तीचे रक्षक.'
-    },
-    en: {
-      'variants': 'Historical Variants: Different versions of the same story.',
-      'champu': 'Champu Style: Literature mixing Prose and Poetry.',
-      'panchatantra': 'Panchatantra: Ancient Indian fables.',
-      'yaksha': 'Yaksha: Guardians of wealth.'
-    }
-  };
+  // 1. Define your words and meanings here
+const dictionaryData = {
+  'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे काळाप्रमाणे किंवा प्रदेशाप्रमाणे बदललेले विविध संदर्भ.',
+    'champu': 'चंपूप्रकार: गद्य आणि पद्य (Prose & Poetry) यांचे मिश्रण असलेले वाङ्मय.',
+    'variants': 'ऐतिहासिक पर्याय: विविध संदर्भ.'
+  };
+  'yaksha': 'यक्ष: संपत्तीचे रक्षक आणि निसर्गाशी संबंधित प्राचीन अतिमानवी शक्ती.',
+  'kinnar': 'किन्नर: अश्वमुख आणि मानवी देह असलेली, गायन-वादनात निपुण अतिमानवी योनी.'
+};
 
-  const academicData = {
-    mr: {
-      title: "लोकसाहित्याची रूपरेखा",
-      subtitle: "प्रकरण ५: परीकथा आणि अद्भुतकथा",
-      intro: "येथे आपण <span class='dict-link' onclick='openDict(\"champu\")'>चंपूप्रकार</span> पाहू शकतो. यात <span class='dict-link' onclick='openDict(\"variants\")'>ऐतिहासिक पर्याय</span> महत्त्वाचे आहेत.",
-      histTitle: "१. ऐतिहासिक पर्याय",
-      histPara: "राजा विक्रमाचा दरबार हा <span class='dict-link' onclick='openDict(\"panchatantra\")'>पंचतंत्रातल्या</span> वनराजाच्या सभेचे प्रतीक असते.",
-      beingsTitle: "२. अतिमानवी योनी",
-      kinnar: "किन्नर हे महिना स्त्री व महिना पुरुष होतात असा समज आढळतो.",
-      jain: "जैन दिगंबर पंथात तीर्थंकरांचे रक्षक यक्ष असतात.",
-      rakshasTitle: "राक्षसांची लक्षणे",
-      rakshasItems: ["घरी विस्तव", "मुली मदत करतात", "मूर्ख स्वभाव"],
-      features: ["मायिक सिद्धी", "अदृश्य होणे", "कला प्राविण्य"]
-    },
-    en: {
-      title: "Outline of Folklore",
-      subtitle: "Chapter 5: Fairy Tales",
-      intro: "We study fairy tales. Notice the <span class='dict-link' onclick='openDict(\"champu\")'>Champu style</span> and <span class='dict-link' onclick='openDict(\"variants\")'>Historical Variants</span>.",
-      histTitle: "1. Historical Variants",
-      histPara: "King Vikram's court symbolizes the assembly in <span class='dict-link' onclick='openDict(\"panchatantra\")'>Panchatantra</span>.",
-      beingsTitle: "2. Superhuman Beings",
-      kinnar: "Kinnars are believed to change gender monthly.",
-      jain: "Guardians include Gomukh and Padmavati.",
-      rakshasTitle: "Rakshasa Motifs",
-      rakshasItems: ["Fire at home", "Helpful daughters", "Foolish nature"],
-      features: ["Magic powers", "Invisibility", "Arts"]
-    }
-  };
+// 2. Function to show the dictionary
+function openDict(wordKey) {
+  document.getElementById('dict-text').innerText = dictionaryData[wordKey];
+  document.getElementById('dict-overlay').style.display = 'block';
+  document.getElementById('dict-modal').style.display = 'block';
+}
 
-  let currentLang = 'mr';
+// 3. Function to hide the dictionary
+function closeDict() {
+  document.getElementById('dict-overlay').style.display = 'none';
+  document.getElementById('dict-modal').style.display = 'none';
+}
+  // THIS IS THE FULL CONTENT. NO DELETIONS.
+  const academicData = {
+    mr: {
+      title: "लोकसाहित्याची रूपरेखा",
+      subtitle: "प्रकरण ५: परीकथा आणि अद्भुतकथा",
+      intro: "परीकथेची लक्षणे क्रोपेंने वर्णिलेली आपण पहिल्या प्रकरणांत पाहिलीच आहेत. तीच गृहीत धरून भारतीय परीकथांच्या गोतवळ्याची छाननी आपल्याला या प्रकरणांत करायची आहे. या प्रकरणांत मुख्यतः पुढील मुद्द्यांचा विचार करायचा आहे: (१) भारतीय परीकथा आणि <span class='dict-link' onclick='openDict(\"variants\")'>ऐतिहासिक पर्याय</span> (२) भारतीय परीकथांतील अद्भुतत्व, म्हणजेच अतिमानवी योनींचा विचार आणि अद्भुत घटनांचा विचार.",
+      histTitle: ": १ : ऐतिहासिक पर्याय",
+      histPara: "भारतीय कथावाङ्मयाची प्राचीन परंपरा आणि भारतीय धार्मिक व वाङ्मयीन प्रयोगांची अखंडितता पाहिल्यास, ऐतिहासिक पर्यायांना भारतीय परंपरेंत किती महत्त्व आहे हे सहज कळून येतें. जगभरच्या लोककथांना ऐतिहासिक पर्यायाची पार्श्वभूमि अशी नाहीं. ग्रीक किंवा मिसरी अपवाद सोडल्यास बरेंचसें युरोपियन व आफ्रिकेचें लोककथात्मक साहित्य केवळ दंतपरंपरेवर आधारलेलें आहे. ऑस्ट्रेलिया, कॅलिफोर्नियाच्या कथा तर केवळ स्मृतींनीं सुरक्षितलेल्या आढळतात. राजा विक्रमाचा दरबार हा मध्ययुगीन राजांच्या दरबाराचे प्रतीक नसते, तर <span class='dict-link' onclick='openDict(\"panchatantra\")'>पंचतंत्रातल्या</span> वनराजाच्या सभेचे प्रतीक असते. ऐतिहासिक वातावरणापासून परीकथेतल्या अनेक वर्णनांच्या बाबी अलग राहिलेल्या दिसतात. आदिमानवी पार्श्वभूमीचे अवशेष त्या जपून ठेवताना दिसतात. ज्या ज्या प्रदेशांत वन्यसंस्कृतीशिवाय, अगदी प्राथमिक संस्कृतीशिवाय, कुठलीही संस्कृती पोचली नाही, तिथे परीकथा किंवा अद्भुतकथा आढळत नाहीत. उदाहरणार्थ, मध्य आफ्रिकेतल्या निग्रो लोकांना परीकथा माहीत नाहीत. ऑस्ट्रेलियातल्याही अत्यंत रानटी लोकांत अद्भुतकथा नाहीत. अमेरिकेतल्या नॉर्थ इंडियन लोकांतही त्यांचा अभाव आहे.",
+      beingsTitle: ": २ : अतिमानवी योनी",
+      beingsPara: "भारतीय अद्भुत कथांतल्या प्राचीनतम अतिमानवी योनी: यक्ष, गंधर्व, किन्नर, गुह्यक, राक्षस, विद्याधर व सर्प यांच्या आहेत. या सर्व अतिमानवी योनींपैकी यक्षांवर फक्त डॉ. आनंद कुमारस्वामी यांनी उत्कृष्ट स्वतंत्र ग्रंथ Yaksas हा लिहिला आहे. गंधर्व-किन्नरांबद्दल असे वाङ्मय फ्रेंच भाषेखेरीज अन्यत्र नाही. नागांविषयी मात्र विपुल वाङ्मय उपलब्ध आहे. गंधर्व म्हणजे माणसाच्या मृत्यूनंतर पुन्हा जन्म घेण्याच्या आधीच्या अवस्थेत असणारा त्याचा आत्मा होय, अशी ही समजूत आहे.",
+      kinnarFull: "किन्नर हे एक महिना स्त्री व एक महिना पुरुष होतात, असाही समज पुराणांत आढळतो. जातकात किन्नरांची जात पुष्पप्रेमी आणि प्रणयासक्त अशी दर्शविलेली आहे. पण ही प्रणयासक्तता यक्षांसारखी स्वैर नव्हे. जातकांत वर्णन आहे की, एक रात्रभर वियुक्त झालेले किन्नर-युगल दुसऱ्या दिवशी सकाळी भेट झाल्यावर एकमेकांना मिठी मारून, एकमेकांची चुंबने घेत आळीपाळीने रडत व हसत ती दोघे कित्येक वर्षे त्याच स्थितीत राहिली, असे वर्णन आहे. गाणे, नाचणे त्यांच्या अंगी मुरलेले.",
+      jainFull: "जैन दिगंबर पंथात तीर्थंकरांचे रक्षक यक्ष असतात. उदाहरणार्थ: ऋषभाचा यक्ष गोमुख (सुवर्णवर्णी, वाहन हत्ती) आणि यक्षिणी अप्रतिचक्रा (आठ हात, वाहन गरुड). पार्श्वनाथाची सेविका यक्षिणी पद्मावती हिचा वर्ण सोनेरी असून रथ सर्पाचा आहे. नागांविषयीचे उल्लेख तर किती आहेत त्यांची गणतीच नाही. नागांची वारुळे वरून दरिद्री दिसली, तरी पाताळलोकी अनंत रत्नांच्या राशी असतात.",
+      rakshasTitle: "राक्षसांची ५ मुख्य बीजे (Motifs)",
+      rakshasItems: [
+        "राक्षसाच्या घरी विस्तव असतो (गोंडात लिंगोची कथा).",
+        "राक्षसाला मुली असतात, ज्या बापाच्या विरुद्ध जाऊन मानवी नायकाला मदत करतात.",
+        "राक्षसिणी पिठे कांडतात (महारी लावण्यांतील वर्णन).",
+        "राक्षसीण मानवाबरोबर कपटी विवाह करते.",
+        "राक्षस किंवा राक्षसीण बलाढ्य असली तरी स्वभावाने मूर्ख असतात. नायक व नायिका त्यांना फसवून त्यांच्यावर मात करतात."
+      ],
+      features: [
+        "त्यांना मायिक सिद्धी प्राप्त असतात आणि आकाशसंचार सुलभ असतो.",
+        "अदृश्य होता येते व रूप पालटता येते.",
+        "कला, संगीत, नृत्यांत प्राविण्य असते.",
+        "मानवांशी संभोग व अपत्यप्राप्ती शक्य असते.",
+        "त्यांची मानवापासून झालेली अपत्ये मानवी असतात.",
+        "पक्ष्यांप्रमाणे त्यांना उडताना पंख लागत नाहीत.",
+        "दिवसापेक्षा रात्रिसंचार त्यांना अधिक आवडतो."
+      ]
+    },
+    en: {
+      title: "Outline of Folklore",
+      subtitle: "Chapter 5: Fairy Tales and Wonder Tales",
+      intro: "We explore the core characteristics of Indian fairy tales here, focusing on: (1) Historical Variants and (2) Supernatural Elements.",
+      histTitle: ": 1 : Historical Variants",
+      histPara: "Indian traditions show deep continuity. King Vikram's court is a symbol of the assembly in Panchatantra. Unlike India, fairy tales are unknown to native tribes in Central Africa and Australia.",
+      beingsTitle: ": 2 : Superhuman Beings",
+      beingsPara: "The oldest species include Yakshas, Gandharvas, Kinnars, and Rakshasas. Gandharvas are believed to be souls awaiting rebirth.",
+      kinnarFull: "In Puranas, Kinnars change gender monthly. Jataka tales describe them as romantic; one story tells of a couple separated for a night who reunited and spent years embracing, laughing and crying together.",
+      jainFull: "In Jainism, Tirthankaras have guardians like Gomukh (for Rishabha) and Padmavati (for Parshvanatha), who has a golden complexion and a serpent chariot.",
+      rakshasTitle: "5 Main Motifs of Rakshasas",
+      rakshasItems: [
+        "Fire is found in their homes.",
+        "Daughters help the hero against the father.",
+        "Ogresses grind flour.",
+        "They enter into deceitful marriages with humans.",
+        "They are powerful but foolish."
+      ],
+      features: [
+        "Mystical powers and sky travel.",
+        "Invisibility and shape-shifting.",
+        "Expertise in arts and music.",
+        "Reproduction with humans.",
+        "Human-like offspring.",
+        "Flight without wings.",
+        "Preference for night travel."
+      ]
+    }
+    const academicData = {
+    mr: {
+      title: "लोकसाहित्याची रूपरेखा",
+      subtitle: "प्रकरण ५: परीकथा आणि अद्भुतकथा",
+      // ADD THE SPAN TAG HERE:
+      intro: "परीकथेची लक्षणे आपण पहिल्या प्रकरणांत पाहिलीच आहेत. येथे आपण <span class='dict-link' onclick='openDict(\"champu\")'>चंपूप्रकार</span> पाहू शकतो. या प्रकरणांत मुख्यतः पुढील मुद्द्यांचा विचार करायचा आहे...",
+      
+      // The rest of your Marathi content...
+    },
+    en: {
+      title: "Outline of Folklore",
+      subtitle: "Chapter 5: Fairy Tales",
+      // ADD THE ENGLISH VERSION HERE:
+      intro: "We have seen the characteristics of fairy tales. Here we can observe the <span class='dict-link' onclick='openDict(\"champu\")'>Champu style</span>. In this chapter, we focus on...",
+      
+      // The rest of your English content...
+    }
+  };
+  };
 
-  // 2. THE RENDER FUNCTION
-  function renderPage() {
-    const d = academicData[currentLang];
-    const contentArea = document.getElementById('page-content');
-    
-    contentArea.innerHTML = `
-      <div style="text-align:center;">
-        <h1>${d.title}</h1>
-        <p style="color:var(--gold); font-weight:bold; font-size:1.5rem;">${d.subtitle}</p>
-      </div>
-      <p>${d.intro}</p>
-      <h3>${d.histTitle}</h3>
-      <p>${d.histPara}</p>
-      <h3>${d.beingsTitle}</h3>
-      <p>${d.kinnar}</p>
-      <p>${d.jain}</p>
-      <h3>${d.rakshasTitle}</h3>
-      <ol>${d.rakshasItems.map(i => `<li>${i}</li>`).join('')}</ol>
-      <ul>${d.features.map(f => `<li>${f}</li>`).join('')}</ul>
-    `;
-  }
+  let currentLang = 'mr';
 
-  // 3. THE DICTIONARY FUNCTIONS (CORRECTED)
-  function openDict(key) {
-    const wordInfo = dictionaryData[currentLang][key];
-    
-    if (wordInfo) {
-      document.getElementById('dict-text').innerText = wordInfo;
-      document.getElementById('modal-title').innerText = (currentLang === 'mr') ? 'संदर्भ' : 'Reference';
-      
-      // Make sure elements exist before changing style
-      const modal = document.getElementById('dict-modal');
-      const overlay = document.getElementById('dict-overlay');
-      
-      modal.style.display = 'block';
-      overlay.style.display = 'block';
-    } else {
-      alert("Error: Definition for '" + key + "' missing!");
-    }
-  }
+  function renderPage() {
+    const d = academicData[currentLang];
+    document.getElementById('page-content').innerHTML = `
+      <header style="text-align: center; margin-bottom: 50px;">
+        <h1>${d.title}</h1>
+        <p style="font-size: 1.6rem; font-weight: bold; color: var(--gold);">${d.subtitle}</p>
+      </header>
 
-  function closeDict() {
-    document.getElementById('dict-modal').style.display = 'none';
-    document.getElementById('dict-overlay').style.display = 'none';
-  }
+      <div style="text-align: center; margin: 30px 0; background: #fff; padding: 15px; border: 1px solid #ddd;">
+        <img src="parikatha1.jpeg" style="max-width: 45%; height: auto;">
+        <img src="parikatha2.jpeg" style="max-width: 45%; height: auto; margin-left: 5px;">
+        <p style="color:var(--shahi-red); font-weight:bold; font-family:'Khand';">चित्र १ व २: ऐतिहासिक परंपरा</p>
+      </div>
 
-  function toggleLanguage() {
-    currentLang = (currentLang === 'mr') ? 'en' : 'mr';
-    renderPage();
-  }
+      <p>${d.intro}</p>
+      <h3>${d.histTitle}</h3>
+      <p>${d.histPara}</p>
 
-  // Initial Load
-  window.onload = renderPage;
+      <div style="text-align: center; margin: 30px 0; background: #fff; padding: 15px; border: 1px solid #ddd;">
+        <img src="parikatha3.jpeg" style="max-width: 80%; height: auto;">
+        <p style="color:var(--shahi-red); font-weight:bold; font-family:'Khand';">चित्र ३: अतिमानवी योनी</p>
+      </div>
+
+      <h3>${d.beingsTitle}</h3>
+      <p>${d.beingsPara}</p>
+      <p>${d.kinnarFull}</p>
+
+      <h3>यक्ष आणि यक्षिणी (जैन संदर्भ)</h3>
+      <p>${d.jainFull}</p>
+
+      <div style="text-align: center; margin: 30px 0; background: #fff; padding: 15px; border: 1px solid #ddd;">
+        <img src="dantkatha1.jpeg" style="max-width: 45%; height: auto;">
+        <img src="dantkatha2.jpeg" style="max-width: 45%; height: auto; margin-left: 5px;">
+        <p style="color:var(--shahi-red); font-weight:bold; font-family:'Khand';">चित्र ४ व ५: लोककथा वारसा</p>
+      </div>
+
+      <h3>${d.rakshasTitle}</h3>
+      <ol style="font-size: 1.25rem;">${d.rakshasItems.map(i => `<li>${i}</li>`).join('')}</ol>
+
+      <h3>अतिमानवी योनींची सामान्य वैशिष्ट्ये</h3>
+      <ul style="font-size: 1.25rem;">${d.features.map(f => `<li>${f}</li>`).join('')}</ul>
+
+      <footer style="text-align:center; margin-top:50px; border-top:1px solid #ccc; padding-top:20px;">
+        <p>© २०२६ | MIT ADT University, Pune</p>
+      </footer>
+    `;
+  }
+
+  function toggleLanguage() {
+    currentLang = (currentLang === 'mr') ? 'en' : 'mr';
+    renderPage();
+  }
+
+  function openDict(key) {
+    const dictData = {
+      'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे विविध संदर्भ.',
+      'panchatantra': 'पंचतंत्र: नीती शिकवणारा प्राचीन ग्रंथ.'
+    };
+    document.getElementById('dict-text').innerText = dictData[key];
+    document.getElementById('dict-overlay').style.display = 'block';
+    document.getElementById('dict-modal').style.display = 'block';
+  }
+
+  function closeDict() {
+    document.getElementById('dict-overlay').style.display = 'none';
+    document.getElementById('dict-modal').style.display = 'none';
+  }
+
+  // RUN INITIAL LOAD
+  renderPage();
 </script>
 
 </body>
