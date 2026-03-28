@@ -43,6 +43,12 @@
     <p id="dict-text" style="font-size: 1.3rem; font-weight: 500; min-height: 50px;"></p>
     <button onclick="closeDict()">बंद करा (CLOSE)</button>
   </div>
+  <div id="dict-overlay" onclick="closeDict()" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999;"></div>
+<div id="dict-modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:3px solid #b8964d; z-index:10000; width:300px; text-align:center; border-radius:10px;">
+  <h3 style="color:#8B0000; margin-top:0;">संदर्भ</h3>
+  <p id="dict-text" style="font-size:1.1rem;"></p>
+  <button onclick="closeDict()" style="background:#8B0000; color:white; border:none; padding:10px; cursor:pointer;">CLOSE</button>
+</div>
 
   <div class="container">
     <h1>लोकसाहित्याची रूपरेखा</h1>
@@ -111,6 +117,30 @@
       document.getElementById('dict-modal').style.display = 'none';
     }
   </script>
+<script>
+  // This dictionary holds your meanings
+  const dictionary = {
+    'champu': 'चंपूप्रकार: गद्य आणि पद्य यांचे मिश्रण असलेले वाङ्मय.',
+    'variants': 'ऐतिहासिक पर्याय: एकाच कथेचे काळाप्रमाणे किंवा प्रदेशाप्रमाणे बदललेले विविध संदर्भ.',
+    'panch': 'पंचतंत्र: विष्णू शर्मा यांनी रचलेला प्राचीन ग्रंथ.',
+    'yaksha': 'यक्ष: संपत्तीचे रक्षक आणि प्राचीन अतिमानवी शक्ती.'
+  };
 
+  // This function makes the box appear
+  function openDict(key) {
+    const meaning = dictionary[key];
+    if (meaning) {
+      document.getElementById('dict-text').innerText = meaning;
+      document.getElementById('dict-overlay').style.display = 'block';
+      document.getElementById('dict-modal').style.display = 'block';
+    }
+  }
+
+  // This function hides the box
+  function closeDict() {
+    document.getElementById('dict-overlay').style.display = 'none';
+    document.getElementById('dict-modal').style.display = 'none';
+  }
+</script>
 </body>
 </html>
